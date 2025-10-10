@@ -30,8 +30,8 @@ a:hover {
 /* Scale down entire content on screens smaller than 768px */
 <style>
 @media (max-width: 768px) and (orientation: portrait) {
-
-  /* Flipbook container takes entire viewport */
+  
+  /* Flipbook container takes full viewport */
   #flipbook {
     width: 100vw !important;
     height: 100vh !important;
@@ -42,31 +42,20 @@ a:hover {
     flex-direction: column !important;
   }
 
-  /* Every page is fullscreen */
+  /* Every page fills full screen */
   .page, .cover-page, .last-page {
     width: 100vw !important;
     height: 100vh !important;
-    padding: 4vh 5vw !important;
     border: none !important;
+    padding: 4vh 5vw !important;
     box-sizing: border-box;
-    overflow-y: auto; /* scroll if needed */
     display: flex !important;
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
   }
 
-  /* Adjust page links/buttons */
-  .page-links {
-    position: fixed !important;
-    bottom: 12vh;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 2vw;
-    flex-wrap: wrap;
-  }
-
-  /* Navigation arrows */
+  /* Page navigation */
   button.nav {
     position: fixed !important;
     bottom: 2vh !important;
@@ -77,18 +66,27 @@ a:hover {
   #prevBtn { left: 5vw !important; }
   #nextBtn { right: 5vw !important; }
 
-  /* Optional: slightly smaller images so content fits */
+  /* Page links/buttons centered at bottom */
+  .page-links {
+    position: fixed !important;
+    bottom: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 2vw;
+    flex-wrap: wrap;
+  }
+
+  /* Images scale nicely on mobile */
   .page img {
-    max-width: 60% !important;
+    max-width: 70% !important;
     height: auto !important;
   }
 
-  /* Text sizing for readability */
+  /* Text sizing */
   .page-content {
     font-size: 1em !important;
     line-height: 1.4em !important;
   }
-
 }
 
 
