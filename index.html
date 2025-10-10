@@ -676,40 +676,38 @@ function renderCover() {
 
 
 
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
 function renderPages() {
-  flipbook.classList.remove('cover-mode', 'last-page-mode');
   flipbook.innerHTML = '';
 
-  // LEFT PAGE
-  const leftPage = document.createElement('div');
-  leftPage.className = 'page left';
-  leftPage.innerHTML = `
-    ${pageHeaders[currentLeftPage] ? `<div class="page-header">${pageHeaders[currentLeftPage]}</div>` : ''}
-    <div class="page-content">
-      ${pagesContent[currentLeftPage] || ''}
-    </div>
-    <div class="page-number">${currentLeftPage}</div>
-  `;
-  flipbook.appendChild(leftPage);
+  if (isMobile()) {
+    // Mobile: render one page at a time
+    const page = document.createElement('div');
+    page.className = 'page';
+    page.innerHTML = pages[currentLeftPage]; // only one page
+    flipbook.appendChild(page);
 
-  // RIGHT PAGE
-  const rightPageNum = currentLeftPage + 1;
-  if (rightPageNum <= totalPages) {
+    // Hide left/right specific classes
+    flipbook.classList.remove('cover-mode', 'last-page-mode');
+  } else {
+    // Desktop: render book effect (2 pages)
+    const leftPage = document.createElement('div');
+    leftPage.className = 'page left';
+    leftPage.innerHTML = pages[currentLeftPage];
+
     const rightPage = document.createElement('div');
     rightPage.className = 'page right';
-    rightPage.innerHTML = `
-      ${pageHeaders[rightPageNum] ? `<div class="page-header">${pageHeaders[rightPageNum]}</div>` : ''}
-      <div class="page-content">
-        ${pagesContent[rightPageNum] || ''}
-      </div>
-      <div class="page-number">${rightPageNum}</div>
-    `;
+    rightPage.innerHTML = pages[currentLeftPage + 1] || '';
+
+    flipbook.innerHTML = '';
+    flipbook.appendChild(leftPage);
     flipbook.appendChild(rightPage);
   }
 
-  // show both nav buttons on normal pages
-  nextBtn.style.display = "block";
-  prevBtn.style.display = "block";
+  updateButtons();
 }
 
 
