@@ -540,6 +540,23 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     box-sizing: border-box;
   }
 }
+@media (orientation: landscape) and (max-width: 1024px) {
+  .research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3vw 1vw;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
+  }
+  .research-row-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* margin-bottom: 0; -- grid handles gap */
+  }
+}
 </style>
 </head>
 <body>
