@@ -26,13 +26,7 @@ a:hover {
   color: #2e4518;
   transform: scale(1.05);
 }
-@media (max-width: 768px) {
-  #flipbook-container {
-    transform-origin: top left;
-    transform: scale(0.45);
-    width: 220%;
-    height: 220%;
-  }
+
   button, .page-links button {
     font-size: 3vw;
     padding: 0.5em 1em;
@@ -116,24 +110,7 @@ a:hover {
   font-size: 1.5vw;
   color: #405d27;
 }
-@media (max-width: 768px) {
-  .skill-pill {
-    display: inline-block;
-    border: 1px solid #405d27;
-    color: #405d27;
-    background: #e6f4d9;
-    border-radius: 999px;
-    padding: 0.8vw 3vw;
-    font-size: 3.3vw;
-    margin-bottom: 1vw;
-    margin-right: 0;
-    text-align: center;
-    font-family: 'Roboto',sans-serif;
-    font-weight: 500;
-    min-width: 12vw;
-    margin-top: 0.5vw;
-  }
-}
+
 .page.left .page-number { left: 2vw; }
 .page.right .page-number { right: 2vw; }
 .cover-page .page-number{ transform: translateX(-50%);}
@@ -230,15 +207,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
 .close-btn:hover { background: #c9302c; }
 
 /* ------------- MOBILE-ONLY: HIDE DESKTOP, SHOW SCROLLABLE ------------- */
-@media (max-width: 768px) {
-  .container, .flipbook-container, .controls { display: none !important; }
-  body {
-    display: block;
-    height: auto;
-    min-height: 100vh;
-    background: url('bg.png') no-repeat center center fixed;
-    background-size: cover;
-  }
+
   #mobile-scroll {
     display: flex;
     flex-direction: column;
@@ -328,36 +297,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   }
 }
 
-@media (max-width: 1024px) {
-  .container, .flipbook-container, .controls { display: none !important; }
-  #mobile-scroll { display: flex !important; }
-  body {
-    display: block;
-    height: auto;
-    min-height: 100vh;
-    background: url('bg.png') no-repeat center center fixed;
-    background-size: cover;
-  }
-}
 
-/* Also update skill-pill pills if you have them: */
-@media (max-width: 1024px) {
-  .skill-pill {
-    display: inline-block;
-    border: 1px solid #405d27;
-    color: #405d27;
-    background: #e6f4d9;
-    border-radius: 999px;
-    padding: 0.8vw 3vw;
-    font-size: 3.3vw;
-    margin-bottom: 1vw;
-    text-align: center;
-    font-family: 'Roboto',sans-serif;
-    font-weight: 500;
-    min-width: 12vw;
-    margin-top: 0.5vw;
-  }
-}
 body.is-mobile-device .container,
 body.is-mobile-device .flipbook-container,
 body.is-mobile-device .controls {
@@ -384,6 +324,90 @@ body.is-mobile-device .mobile-section {
   font-family: 'Roboto', sans-serif;
   position: relative;
   text-align: center;
+}
+body.is-mobile-device .mobile-section .page-header {
+  font-size: 6vw;
+  color: #405d27;
+  font-weight: 600;
+  margin-bottom: 3vw;
+}
+body.is-mobile-device .mobile-section .page-content {
+  font-size: 3.6vw;
+  line-height: 1.5em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+body.is-mobile-device .mobile-cover {
+  background: #e6f4d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body.is-mobile-device .mobile-cover h1 {
+  font-size: 8vw;
+  margin: 0.2em 0;
+  color: #222;
+  font-family: 'Fredoka One', sans-serif;
+  font-weight: 700;
+}
+body.is-mobile-device .mobile-cover h2 {
+  font-size: 6vw;
+  color: #405d27;
+  margin: 0.2em 0 0.5em 0;
+  font-weight: 700;
+}
+body.is-mobile-device .mobile-cover p {
+  font-size: 4vw;
+  color: #333;
+  margin-bottom: 2em;
+  font-weight: 500;
+}
+body.is-mobile-device .mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  width: 100%;
+  margin-top: 0.5em;
+  align-items: center;
+}
+body.is-mobile-device .mobile-links button {
+  background: #fff;
+  color: #405d27;
+  border: 2px solid #405d27;
+  border-radius: 8px;
+  padding: 3vw 7vw;
+  font-size: 4.2vw;
+  font-weight: 500;
+  cursor: pointer;
+  width: 80vw;
+  max-width: 340px;
+  margin-bottom: 1vw;
+  transition: all 0.3s;
+}
+body.is-mobile-device .mobile-links button:hover,
+body.is-mobile-device .mobile-links button:focus {
+  background: #405d27;
+  color: #fff;
+}
+
+/* Pills for skills */
+body.is-mobile-device .skill-pill {
+  display: inline-block;
+  border: 1px solid #405d27;
+  color: #405d27;
+  background: #e6f4d9;
+  border-radius: 999px;
+  padding: 0.8vw 3vw;
+  font-size: 3.3vw;
+  margin-bottom: 1vw;
+  margin-right: 0;
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 500;
+  min-width: 12vw;
+  margin-top: 0.5vw;
 }
 </style>
 </head>
