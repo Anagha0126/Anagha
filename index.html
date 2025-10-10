@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Flipbook Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Manist:wght@700&family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manist:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
 
 <style>
+
   body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -21,15 +23,38 @@
     background: url('bg.png') no-repeat center center fixed;
     background-size: cover;
   }
-
-  .container {
-    position: relative;
-    width: 80vw;
-    max-width: 1200px;
+a:hover {
+  color: #2e4518; /* slightly darker shade of #405d27 */
+  transform: scale(1.05);
+}
+/* Scale down entire content on screens smaller than 768px */
+@media (max-width: 768px) {
+  #flipbook-container {
+    transform-origin: top left;
+    transform: scale(0.45); /* shrink both height + width */
+    width: 220%;  /* adjust if text cuts off horizontally */
+    height: 220%; /* adjust if vertically overflowing */
   }
 
+  /* Optional: adjust buttons and text for smaller screens */
+  button, .page-links button {
+    font-size: 3vw;
+    padding: 0.5em 1em;
+  }
+
+  .page-content {
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+}
+
+  .container {
+  position: relative;
+  width: 80vw; /* keep same width as flipbook */
+}
+
   .flipbook-container {
-    width: 100%;
+    width: 80vw;
     height: 80vh;
     border-radius: 10px;
     border: 2px solid #405d27;
@@ -38,105 +63,83 @@
     overflow: hidden;
     position: relative;
     display: flex;
-    transition: all 0.3s ease;
+    transition: width 0.28s ease;
   }
 
-  .cover-page, .last-page, .page {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 4vh 4vw;
+  .cover-mode {
+    width: 40vw;
+    margin-left: 40vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    position: relative;
-    text-align: center;
+    align-items: flex-start;
+
+  }
+ .last-page-mode {
+    width: 40vw;
+    margin-right: 40vw;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .cover-page {
-    background: #e6f4d9;
-  }
-
-  .last-page {
-    background: #fff;
-  }
-
-  .page.left {
-    border-right: 1px solid #405d27;
-    background: #fff;
-    flex: 1;
-  }
-
-  .page.right {
-    border-left: 1px solid #405d27;
-    background: #f9f9f9;
-    flex: 1;
-  }
-
-  .page-header {
-    font-size: 2vw;
-    color: #405d27;
-    font-weight: 600;
-    margin-bottom: 3vh;
-  }
-
-  .page-number {
-    position: absolute;
-    bottom: 1.5vh;
-    font-size: 1.5vw;
-    color: #405d27;
-  }
-
-  .controls {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 1vh;
-    height: 6vh;
-    pointer-events: none;
-  }
-
-  button.nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 5vw;
-    height: 5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: auto;
-  }
-  #prevBtn { left: 1vw; }
-  #nextBtn { right: 1vw; }
-
-  button.nav img {
     width: 100%;
-    height: auto;
-    filter: brightness(0) saturate(100%) invert(29%) sepia(11%) saturate(1024%) hue-rotate(55deg) brightness(95%) contrast(88%);
-    transition: filter 0.3s ease, transform 0.2s ease, opacity 0.18s ease;
+    height: 100%;
+    border-right: 1px solid #405d27;
+    box-sizing: border-box;
+    padding: 4vh 4vw;
+    font-size: 1.8vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:#e6f4d9;
+    color: #222;
+    position: relative;
+  }
+  .last-page {
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #405d27;
+    box-sizing: border-box;
+    padding: 4vh 4vw;
+    font-size: 1.8vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    color: #222;
+    position: relative;
   }
 
-  button.nav:hover img {
-    filter: brightness(0) saturate(100%) invert(22%) sepia(55%) saturate(557%) hue-rotate(50deg) brightness(96%) contrast(91%);
-    transform: scale(1.1);
-  }
-
-  button.nav:disabled img {
-    opacity: 0.4;
-    cursor: default;
-  }
 
   .page-links {
-    margin-top: -2vh;
+    margin-top: 4vh;
     display: flex;
     gap: 1vw;
     justify-content: center;
     flex-wrap: nowrap;
+	margin-top: -2vh;
   }
+.page-number {
+  position: absolute;
+  bottom: 1.5vh; /* distance from bottom of page */
+  font-size: 1.5vw;
+  color: #405d27;
+}
+
+.page.left .page-number { left: 2vw; }
+.page.right .page-number { right: 2vw; }
+.cover-page .page-number{
+           /* center for cover/last page */
+  transform: translateX(-50%);
+}
+.last-page-mode .page-number {
+           /* center for cover/last page */
+  transform: translateX(-230%);
+}
 
   .page-links button {
     background: #fff;
@@ -147,6 +150,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 1vw;
   }
 
   .page-links button:hover {
@@ -154,55 +158,143 @@
     color: #fff;
   }
 
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .flipbook-container {
-      flex-direction: column;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .page.left, .page.right {
-      width: 100% !important;
-      height: 100% !important;
-      border: none;
-    }
-
-    .page-header {
-      font-size: 5vw;
-    }
-
-    .page-number {
-      font-size: 4vw;
-    }
-
-    button.nav {
-      width: 10vw;
-      height: 10vw;
-    }
-
-    .page-links button {
-      font-size: 4vw;
-      padding: 2vw 4vw;
-    }
+  .page {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6vh 3vw 4vh;
+    box-sizing: border-box;
+    text-align: center;
+    color: #333;
   }
+
+  .page.left {
+    border-right: 1px solid #405d27;
+    background: #fff;
+  }
+
+  .page.right {
+    border-left: 1px solid #405d27;
+    background: #f9f9f9;
+  }
+
+  .page-number {
+    position: absolute;
+    bottom: 1.5vh;
+    font-size: 1.5vw;
+    color: #405d27;
+  }
+
+  .page.left .page-number { left: 2vw; }
+  .page.right .page-number { right: 2vw; }
+
+  .page-header {
+    font-size: 2vw;
+    color: #405d27;
+    font-weight: 600;
+    margin-bottom: 3vh;
+  }
+
+  .controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1vh;
+  height: 6vh;
+  pointer-events: none; /* buttons will re-enable pointer-events */
+}
+
+
+/* absolute-positioned buttons so they do NOT shift layout when one is hidden */
+button.nav {
+  position: absolute;
+  top: 200%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 5vw;
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.18s ease;
+  pointer-events: auto; /* allow clicks */
+}
+#prevBtn { left: 1vw; }
+#nextBtn { right: 1vw; }
+
+/* keep images styling */
+button.nav img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(29%) sepia(11%) saturate(1024%) hue-rotate(55deg) brightness(95%) contrast(88%);
+  transition: filter 0.3s ease, transform 0.2s ease, opacity 0.18s ease;
+}
+
+/* hide visually but keep space (not needed with absolute positioning but harmless) */
+button.nav.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+button.nav:hover img {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(55%) saturate(557%) hue-rotate(50deg) brightness(96%) contrast(91%);
+  transform: scale(1.1);
+}
+
+button.nav:disabled img {
+  opacity: 0.4;
+  cursor: default;
+}
+
+
+  .close-btn {
+    margin-top: 30px;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: #d9534f;
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+  }
+
+  .close-btn:hover {
+    background: #c9302c;
+  }
+#nextBtn img {
+  width: 84%;   /* reduce size (try 70% or 60% if you want even smaller) */
+  height: auto;
+}
 </style>
 </head>
 <body>
 
 <div class="container">
   <div class="flipbook-container" id="flipbook"></div>
-  <div class="controls">
-    <button class="nav" id="prevBtn">
-      <img src="left.png" alt="Previous Page">
-    </button>
-    <button class="nav" id="nextBtn">
-      <img src="right.png" alt="Next Page">
-    </button>
-  </div>
+ <div class="controls">
+  <button class="nav" id="prevBtn">
+    <img src="left.png" alt="Previous Page">
+  </button>
+  <button class="nav" id="nextBtn">
+    <img src="right.png" alt="Next Page">
+  </button>
+</div>
+
 </div>
 
 <script>
+
+
+
+
+
+
 const pagesContent = [
   null,
  `
@@ -451,6 +543,9 @@ const pagesContent = [
 </div>
 
 
+
+
+
 `
 
 ];
@@ -461,21 +556,51 @@ const pageHeaders = {
   3: "Education & Skills",
   4: "Research Projects",
   5: "",
-  6: "Contact"
+  6: ""
 };
 
 const totalPages = pagesContent.length - 1;
-let currentPage = null;
+let currentLeftPage = null;
 const flipbook = document.getElementById('flipbook');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+const controls = document.getElementById('controls');
+
+function setControlsWidthForFlipbook() {
+  const fbWidth = getComputedStyle(flipbook).width;
+  controls.style.width = fbWidth;
+  controls.style.maxWidth = fbWidth;
+  controls.style.margin = '10px 0 0 0';
+}
 
 function renderCover() {
+  flipbook.classList.add('cover-mode');
   flipbook.classList.remove('last-page-mode');
   flipbook.innerHTML = '';
+
   const cover = document.createElement('div');
   cover.className = 'cover-page';
-  cover.innerHTML = pagesContent[1] || '';
+  cover.innerHTML = `
+    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; font-family:'Roboto', sans-serif; text-align:center;">
+      <div style="font-size:5vw; color:black; font-weight:700;">Hi!</div>
+      <div style="font-size:4vw; color:#405d27; font-weight:700;">I'm Anagha Srikrishna</div>
+      <div style="font-size:1.8vw; color:#333; margin-top:3vh; font-weight:500;">
+        <br><br>Get to know me
+        <div>
+          <center>
+            <img 
+              src="cover.png" 
+              alt="Anagha" 
+              style="max-width:25%; max-height:20%; object-fit:contain; transition: transform 0.4s ease-in-out;" 
+              onmouseover="this.style.transform='scale(1.1)'" 
+              onmouseout="this.style.transform='scale(1)'"
+            />
+          </center>
+        </div>
+      </div>
+    </div>
+  `;
+
   const linksContainer = document.createElement('div');
   linksContainer.className = 'page-links';
   [
@@ -488,83 +613,149 @@ function renderCover() {
     const btn = document.createElement('button');
     btn.textContent = label;
     btn.addEventListener('click', () => {
-      currentPage = page;
-      renderPages();
+      currentLeftPage = page % 2 === 0 ? page : page - 1;
+      if (page === 6) renderLastPage();
+      else renderPages();
       updateButtons();
     });
     linksContainer.appendChild(btn);
   });
+
   cover.appendChild(linksContainer);
   flipbook.appendChild(cover);
-  currentPage = null;
-  prevBtn.style.display = 'none';
-  nextBtn.style.display = 'block';
+
+  // Explicitly set nav buttons for cover page
+  prevBtn.style.display = "none"; // hide left arrow
+  nextBtn.style.display = "block"; // show right arrow
 }
+
+
 
 function renderPages() {
+  flipbook.classList.remove('cover-mode', 'last-page-mode');
   flipbook.innerHTML = '';
-  const isMobile = window.innerWidth <= 768;
 
-  if(isMobile) {
-    const pageDiv = document.createElement('div');
-    pageDiv.className = 'page left';
-    pageDiv.innerHTML = `
-      ${pageHeaders[currentPage] ? `<div class="page-header">${pageHeaders[currentPage]}</div>` : ''}
-      <div class="page-content">${pagesContent[currentPage] || ''}</div>
-      <div class="page-number">${currentPage}</div>
-    `;
-    flipbook.appendChild(pageDiv);
-  } else {
-    // Desktop: 2 pages
-    const leftPage = document.createElement('div');
-    leftPage.className = 'page left';
-    leftPage.innerHTML = `
-      ${pageHeaders[currentPage] ? `<div class="page-header">${pageHeaders[currentPage]}</div>` : ''}
-      <div class="page-content">${pagesContent[currentPage] || ''}</div>
-      <div class="page-number">${currentPage}</div>
-    `;
-    flipbook.appendChild(leftPage);
+  // LEFT PAGE
+  const leftPage = document.createElement('div');
+  leftPage.className = 'page left';
+  leftPage.innerHTML = `
+    ${pageHeaders[currentLeftPage] ? `<div class="page-header">${pageHeaders[currentLeftPage]}</div>` : ''}
+    <div class="page-content">
+      ${pagesContent[currentLeftPage] || ''}
+    </div>
+    <div class="page-number">${currentLeftPage}</div>
+  `;
+  flipbook.appendChild(leftPage);
 
-    const rightPageNum = currentPage + 1;
-    if(rightPageNum <= totalPages) {
-      const rightPage = document.createElement('div');
-      rightPage.className = 'page right';
-      rightPage.innerHTML = `
-        ${pageHeaders[rightPageNum] ? `<div class="page-header">${pageHeaders[rightPageNum]}</div>` : ''}
-        <div class="page-content">${pagesContent[rightPageNum] || ''}</div>
-        <div class="page-number">${rightPageNum}</div>
-      `;
-      flipbook.appendChild(rightPage);
-    }
+  // RIGHT PAGE
+  const rightPageNum = currentLeftPage + 1;
+  if (rightPageNum <= totalPages) {
+    const rightPage = document.createElement('div');
+    rightPage.className = 'page right';
+    rightPage.innerHTML = `
+      ${pageHeaders[rightPageNum] ? `<div class="page-header">${pageHeaders[rightPageNum]}</div>` : ''}
+      <div class="page-content">
+        ${pagesContent[rightPageNum] || ''}
+      </div>
+      <div class="page-number">${rightPageNum}</div>
+    `;
+    flipbook.appendChild(rightPage);
   }
 
-  updateButtons();
+  // show both nav buttons on normal pages
+  nextBtn.style.display = "block";
+  prevBtn.style.display = "block";
 }
+
+
+
+function renderLastPage() {
+  flipbook.classList.add('last-page-mode');
+  flipbook.classList.remove('cover-mode');
+  flipbook.innerHTML = '';
+
+  const lastPageNum = 6;
+  const lastPage = document.createElement('div');
+  lastPage.className = 'last-page'; // same as normal pages
+  lastPage.innerHTML = `
+    ${pageHeaders[lastPageNum] ? `<div class="page-header">${pageHeaders[lastPageNum]}</div>` : ''}
+    <div class="page-content">${pagesContent[lastPageNum] || ''}</div>
+    <div class="page-number">${lastPageNum}</div>
+  `;
+
+  flipbook.appendChild(lastPage);
+
+  // hide nav buttons on last page
+  prevBtn.style.display = "none";
+  nextBtn.style.display = "none";
+}
+
+
+
+
+
 
 function updateButtons() {
-  prevBtn.style.display = currentPage === null || currentPage === 2 ? 'none' : 'block';
-  nextBtn.style.display = (currentPage === null || currentPage >= totalPages) ? 'none' : 'block';
+  // Cover page
+  if (currentLeftPage === null) {
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'block'; // always show next from cover
+    return;
+  }
+
+  // Last page
+  if (currentLeftPage + 1 >= totalPages) {
+    nextBtn.style.display = 'none';
+  } else {
+    nextBtn.style.display = 'block';
+  }
+
+  // Any page except cover
+  prevBtn.style.display = 'block';
 }
 
+
 prevBtn.addEventListener('click', () => {
-  if(currentPage === null || currentPage === 2) {
-    renderCover();
-  } else {
-    currentPage -= 2;
-    if(currentPage < 2) currentPage = 2;
+  if (currentLeftPage === null) 
+	return ;
+
+  if (currentLeftPage === totalPages) {
+    currentLeftPage -= 2;
     renderPages();
+    updateButtons();
+  } else if (currentLeftPage > 2) {
+    currentLeftPage -= 2;
+    renderPages();
+    updateButtons();
+  } else {
+    currentLeftPage = null;
+    renderCover();
+    updateButtons();
   }
 });
 
 nextBtn.addEventListener('click', () => {
-  if(currentPage === null) currentPage = 2;
-  else currentPage += 2;
-  if(currentPage > totalPages) currentPage = totalPages;
-  renderPages();
+  if (currentLeftPage === null) {
+    currentLeftPage = 2;
+    renderPages();
+    updateButtons();
+  } else if (currentLeftPage + 2 < totalPages) {
+    currentLeftPage += 2;
+    renderPages();
+    updateButtons();
+  } else if (currentLeftPage + 2 === totalPages) {
+    currentLeftPage += 2;
+    renderLastPage();
+    updateButtons();
+  }
 });
 
-window.addEventListener('resize', renderPages);
 renderCover();
+
+updateButtons();
+
+window.addEventListener('resize', setControlsWidthForFlipbook);
+
 </script>
 
 </body>
