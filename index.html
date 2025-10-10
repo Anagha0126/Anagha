@@ -1,3 +1,27 @@
+
+2 of 5,742
+portfolio code
+Inbox
+
+Anagha Srikrishna <anaghasrikrishna@gmail.com>
+Attachments
+5:57 PM (1 hour ago)
+to me
+
+
+ One attachment
+  •  Scanned by Gmail
+
+Anagha Srikrishna
+Attachments
+6:59 PM (24 minutes ago)
+to me
+
+On Fri, Oct 10, 2025 at 5:57 PM Anagha Srikrishna <anaghasrikrishna@gmail.com> wrote:
+
+
+ One attachment
+  •  Scanned by Gmail
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -310,44 +334,72 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   }
 }
 @media (orientation: landscape) and (max-width: 1024px) {
-  #mobile-scroll { display: none !important; }
+  /* Hide portrait scroll and desktop containers */
+  #mobile-scroll, .container, .flipbook-container, .controls {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  body {
+    display: block !important;
+    min-height: 100vh !important;
+    height: 100vh !important;
+    background: url('bg.png') no-repeat center center fixed !important;
+    background-size: cover !important;
+    overflow: hidden !important;
+  }
   #mobile-horizontal-scroll {
     display: block !important;
-    width: 100vw;
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: 100vh;
-    background: url('bg.png') no-repeat center center fixed;
-    background-size: cover;
+    position: fixed !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    background: transparent !important;
+    z-index: 999999 !important;
+    -webkit-overflow-scrolling: touch;
   }
   .horizontal-scroll-inner {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    height: 100vh !important;
+    min-width: 100vw !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 3vw;
   }
   .mobile-section {
-    min-width: 92vw;
-    max-width: 500px;
-    height: 92vh;
-    margin: 0 2vw;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-    padding: 6vw 5vw 4vw 5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-width: 75vw !important;
+    max-width: 80vw !important;
+    height: 90vh !important;
+    margin: 0 2vw !important;
+    background: #fff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.10) !important;
+    padding: 3vw 2vw 2vw 2vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 10000 !important;
+    transform: scale(0.83) !important; /* SCALE DOWN */
+    box-sizing: border-box !important;
   }
   .mobile-section .page-header {
-    font-size: 6vw;
+    font-size: 5vw !important;
     color: #405d27;
     font-weight: 600;
     margin-bottom: 3vw;
   }
   .mobile-section .page-content {
-    font-size: 3.6vw;
+    font-size: 3vw !important;
     line-height: 1.5em;
     color: #333;
     text-align: center;
@@ -366,12 +418,12 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     color: #405d27;
     border: 2px solid #405d27;
     border-radius: 8px;
-    padding: 3vw 7vw;
-    font-size: 4.2vw;
+    padding: 2vw 5vw;
+    font-size: 3vw;
     font-weight: 500;
     cursor: pointer;
-    width: 80vw;
-    max-width: 340px;
+    width: 55vw;
+    max-width: 300px;
     margin-bottom: 1vw;
     transition: all 0.3s;
   }
@@ -385,76 +437,14 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     color: #405d27;
     background: #e6f4d9;
     border-radius: 999px;
-    padding: 0.8vw 3vw;
-    font-size: 3.3vw;
+    padding: 0.5vw 2vw;
+    font-size: 2.3vw;
     margin-bottom: 1vw;
-    margin-right: 0;
     text-align: center;
     font-family: 'Roboto',sans-serif;
     font-weight: 500;
-    min-width: 12vw;
+    min-width: 8vw;
     margin-top: 0.5vw;
-  }
-  /* Hide the default portrait scroll */
-  #mobile-scroll { display: none !important; }
-}
-@media (orientation: landscape) and (max-width: 1024px) {
-  body { /* Make sure body fills the screen and is not flex! */
-    display: block !important;
-    height: 100vh !important;
-    min-height: 100vh !important;
-    overflow: hidden !important;
-    background: url('bg.png') no-repeat center center fixed !important;
-    background-size: cover !important;
-  }
-  /* HIDE all other containers and portrait scroll */
-  .container,
-  .flipbook-container,
-  .controls,
-  #mobile-scroll {
-    display: none !important;
-    visibility: hidden !important;
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
-    z-index: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    pointer-events: none !important;
-  }
-
-  /* SHOW horizontal scroll layout, fill the viewport */
-  #mobile-horizontal-scroll {
-    display: block !important;
-    position: fixed !important;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    background: transparent !important;
-    z-index: 9999 !important;
-  }
-  .horizontal-scroll-inner {
-    display: flex !important;
-    flex-direction: row !important;
-    height: 100vh !important;
-    align-items: center !important;
-  }
-  .mobile-section {
-    min-width: 92vw !important;
-    max-width: 500px !important;
-    height: 92vh !important;
-    margin: 0 2vw !important;
-    background: #fff !important;
-    border-radius: 16px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.10) !important;
-    padding: 6vw 5vw 4vw 5vw !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 10000 !important;
   }
 }
 </style>
@@ -476,181 +466,6 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
 
 <!-- ------------- MOBILE SCROLLABLE SECTIONS ------------- -->
 <!-- ------------- MOBILE SCROLLABLE SECTIONS (ADD-ON, REPLACE ONLY THIS PART) ------------- -->
-<!-- ------------- MOBILE LANDSCAPE HORIZONTAL SCROLLABLE SECTIONS ------------- -->
-<div id="mobile-horizontal-scroll">
-  <div class="horizontal-scroll-inner">
-    <!-- Cover -->
-    <section class="mobile-section mobile-cover" id="mobile-cover-h">
-      <h1>Hi!</h1>
-      <h2>I'm Anagha Srikrishna</h2>
-      <p>Get to know me</p>
-      <img src="cover.png" alt="Anagha" style="max-width:50vw; max-height:30vw; object-fit:contain; margin-bottom:2vw;">
-      <div class="mobile-links">
-        <button data-scroll-h="about-h">About Me</button>
-        <button data-scroll-h="education-h">Education & Skills</button>
-        <button data-scroll-h="research-h">Research Work</button>
-        <button data-scroll-h="orgs-h">Organizations</button>
-        <button data-scroll-h="contact-h">Contact</button>
-      </div>
-    </section>
-    <!-- About -->
-    <section class="mobile-section" id="about-h">
-      <div class="page-header">About Me</div>
-      <div class="page-content">
-        <img src="anagha-2.png" alt="Anagha" style="max-width:65vw; max-height:30vw; object-fit:contain; margin-bottom:3vw;">
-        <div style="font-family:'Manist', sans-serif; font-size:5vw; color:#405d27; margin-bottom:2vw;"><b>Hi, I’m Anagha Srikrishna.</b></div>
-        <div style="font-size:3.5vw; margin-bottom:3vw;">
-        I’m a Computer Science student at Anna University with a deep interest in machine learning, data mining, and deep learning. Through internships at Wells Fargo and IIT Madras, I’ve worked on research projects that combine real-world data, advanced modeling, and innovative problem-solving. My work focuses on building intelligent systems and extracting meaningful insights, and I’m always exploring new ways to apply my skills to challenging, impactful projects.
-        </div>
-        <a href="/Anagha_Resume_2025.pdf" target="_blank" style="color:#007bff; text-decoration:none; font-size:4vw;">
-          View My Resume ↗
-        </a>
-      </div>
-    </section>
-    <!-- Education & Skills -->
-    <section class="mobile-section" id="education-h">
-      <div class="page-header">Education & Skills</div>
-      <div class="page-content" style="text-align:left;">
-        <div style="display:flex; align-items:center; gap:3vw; margin-bottom:3vw;">
-          <img src="annauniv.png" alt="Anna University" style="width:90px; height:60px; border-radius:12px; border:2px solid #405d27;">
-          <span style="font-style:italic; font-size:3.5vw;">B.E. Computer Science and Engineering<br>College of Engineering Guindy, Anna University<br>Expected Graduation: 2026</span>
-        </div>
-        <h2 style="color:#405d27; font-size:5vw; text-align:center;">Skills</h2>
-        <div style="margin-bottom:2vw;">
-          <b style="color:#405d27;">Languages:</b><br>
-          <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">C/C++</span>
-            <span class="skill-pill">Java</span>
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">Bash/Shell</span>
-          </div>
-        </div>
-        <div style="margin-bottom:2vw;">
-          <b style="color:#405d27;">Libraries:</b><br>
-          <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-            <span class="skill-pill">PyTorch</span>
-            <span class="skill-pill">Scikit-learn</span>
-            <span class="skill-pill">OpenCV</span>
-            <span class="skill-pill">Pandas</span>
-            <span class="skill-pill">NumPy</span>
-            <span class="skill-pill">Matplotlib</span>
-            <span class="skill-pill">Seaborn</span>
-          </div>
-        </div>
-        <div style="margin-bottom:2vw;">
-          <b style="color:#405d27;">Databases & Cloud:</b><br>
-          <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-            <span class="skill-pill">MySQL</span>
-            <span class="skill-pill">MongoDB</span>
-            <span class="skill-pill">SQLite</span>
-            <span class="skill-pill">AWS</span>
-            <span class="skill-pill">Azure</span>
-            <span class="skill-pill">Docker</span>
-            <span class="skill-pill">Git</span>
-          </div>
-        </div>
-        <div>
-          <b style="color:#405d27;">Web & Tools:</b><br>
-          <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-            <span class="skill-pill">HTML</span>
-            <span class="skill-pill">CSS</span>
-            <span class="skill-pill">JavaScript</span>
-            <span class="skill-pill">React.js</span>
-            <span class="skill-pill">Node.js</span>
-            <span class="skill-pill">REST APIs</span>
-            <span class="skill-pill">Keycloak</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Research -->
-    <section class="mobile-section" id="research-h">
-      <div class="page-header">Research Projects</div>
-      <div class="page-content" style="text-align:center;">
-        <div style="margin-bottom:7vw;">
-          <img src="spatio.png" alt="Spatio-Temporal" style="display:block; margin: 0 auto 2vw auto; width:120px; height:175px; border-radius:16px; object-fit:cover;">
-          <div>
-            <b>Spatio-Temporal Analysis of Air Quality Disparities Across Urban and Rural India
-              <a href="/Spatio-Temporal.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-            </b>
-            <br>
-            Conducted spatio-temporal analysis of air quality across 5 urban-rural pairs in India using 2.5+ years of multi-pollutant data, machine learning, and clustering; developed a Pollution Disparity Index (PDI) to quantify AQI variations and inform policy.
-          </div>
-        </div>
-        <div style="margin-bottom:7vw;">
-          <img src="forecast.png" alt="Air Pollution" style="display:block; margin: 0 auto 2vw auto; width:110px; height:130px; border-radius:16px; object-fit:cover;">
-          <div>
-            <b>Automated Air Pollution Forecasting Using Time Series Models
-              <a href="/Automated.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-            </b>
-            <br>
-            Developed an automated air quality forecasting system for Chennai using SARIMA (outperforming ARIMA and Prophet), real-time data, and daily retraining, achieving 13.6% MAPE.
-          </div>
-        </div>
-        <div style="margin-bottom:7vw;">
-          <img src="aoi.png" alt="AOI" style="display:block; margin: 0 auto 2vw auto; width:110px; height:70px; border-radius:16px; object-fit:cover;">
-          <div>
-            <b>AOI-Inspired Descriptive Rule Mining
-              <a href="/AOI.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-            </b>
-            <br>
-            Adapted Attribute-Oriented Induction for non-hierarchical data to extract interpretable behavioral insights from Amazon Fashion Reviews.
-          </div>
-        </div>
-        <div>
-          <img src="aml.png" alt="AML" style="display:block; margin: 0 auto 2vw auto; width:110px; height:95px; border-radius:16px; object-fit:cover;">
-          <div>
-            <b>Weighted Ensemble Outlier Detection for Anti-Money Laundering
-              <a href="/Weighted.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-            </b>
-            <br>
-            Developed a weighted ensemble for anti-money laundering detection, integrating statistical, density-, distance-, and graph-based models; achieved 92% sensitivity and 81% specificity on IBM AML dataset.
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Orgs -->
-    <section class="mobile-section" id="orgs-h">
-      <div class="page-header">Organizations</div>
-      <div class="page-content">
-        <div style="display:flex; align-items:center; gap:3vw; justify-content:center; margin-bottom:2vw;">
-          <img src="acm-ceg.png" alt="ACM-CEG" style="width:60px; height:60px;">
-          <span style="font-family:'Courier New',monospace; color:#405d27; font-size:3vw;">
-            ACM-CEG, started in 2004, is the largest student-run tech club at CEG. I’ve been part of the club for 2+ years and currently serve as Chairperson, leading events like Prodigy and CodHer.<br>
-            <a href="https://auceg.acm.org/" target="_blank" style="color:#007bff; text-decoration:none;">View ACM-CEG's events ↗</a>
-          </span>
-        </div>
-      </div>
-    </section>
-    <!-- Contact -->
-    <section class="mobile-section" id="contact-h">
-      <div class="page-header">Contact</div>
-      <div class="page-content">
-        <img src="contact.png" alt="Contact" style="height:80px; width:120px; margin-bottom:2vw;">
-        <div style="display:flex; flex-direction:column; gap:4vw; align-items:center;">
-          <a href="mailto:2022103066@student.annauniv.edu"
-             style="display:flex;align-items:center;gap:1vw;background-color:#405d27;color:white;font-size:4vw;padding:2vw 8vw;border-radius:16px;text-decoration:none;transition:all 0.3s;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/microsoftoutlook.svg"
-                 style="height:1em;width:1em;filter:invert(1);margin-right:1vw;">
-            2022103066@student.annauniv.edu
-          </a>
-          <div style="height:4vw;"></div>
-          <a href="https://www.linkedin.com/in/anagha-srikrishna" target="_blank"
-             style="display:flex;align-items:center;gap:1vw;background-color:#405d27;color:white;font-size:3.8vw;padding:2vw 8vw;border-radius:16px;text-decoration:none;transition:all 0.3s;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
-                 style="height:1em;width:1em;filter:invert(1);margin-right:1vw;">
-            LinkedIn: anagha-srikrishna
-          </a>
-        </div>
-        <div style="margin-top:5vw; font-size:5vw; color:#2e8b57; font-weight:bold;">Let’s Keep in Touch!</div>
-        <div style="margin-top:2vw;">
-          <a href="#mobile-cover-h" style="color:#2e8b57;font-weight:bold;text-decoration:underline;font-size:4vw;">Go to Cover Page</a>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
 <div id="mobile-scroll">
   <section class="mobile-section mobile-cover" id="mobile-cover">
     <h1>Hi!</h1>
@@ -822,7 +637,45 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     </div>
   </section>
 </div>
-
+<!-- MOBILE LANDSCAPE HORIZONTAL SCROLL -->
+<div id="mobile-horizontal-scroll" style="display:none;">
+  <div class="horizontal-scroll-inner">
+    <!-- Duplicate your mobile sections here, but change IDs/add -h suffix to match JS below -->
+    <section class="mobile-section mobile-cover" id="mobile-cover-h">
+      <h1>Hi!</h1>
+      <h2>I'm Anagha Srikrishna</h2>
+      <p>Get to know me</p>
+      <img src="cover.png" alt="Anagha" style="max-width:40vw; max-height:25vw; object-fit:contain; margin-bottom:2vw;">
+      <div class="mobile-links">
+        <button data-scroll-h="about-h">About Me</button>
+        <button data-scroll-h="education-h">Education & Skills</button>
+        <button data-scroll-h="research-h">Research Work</button>
+        <button data-scroll-h="orgs-h">Organizations</button>
+        <button data-scroll-h="contact-h">Contact</button>
+      </div>
+    </section>
+    <section class="mobile-section" id="about-h">
+      <!-- Copy About Me content from portrait -->
+      <!-- ... -->
+    </section>
+    <section class="mobile-section" id="education-h">
+      <!-- Copy Education & Skills content from portrait -->
+      <!-- ... -->
+    </section>
+    <section class="mobile-section" id="research-h">
+      <!-- Copy Research Projects content from portrait -->
+      <!-- ... -->
+    </section>
+    <section class="mobile-section" id="orgs-h">
+      <!-- Copy Organizations content from portrait -->
+      <!-- ... -->
+    </section>
+    <section class="mobile-section" id="contact-h">
+      <!-- Copy Contact content from portrait -->
+      <!-- ... -->
+    </section>
+  </div>
+</div>
 <!-- Pills for skills, mobile only -->
 <style>
 @media (max-width: 768px) {
@@ -1336,10 +1189,10 @@ window.addEventListener('resize', setupMobileScroll);
 </script>
 <script>
 function setupLandscapeScroll() {
+  const horizontal = document.getElementById('mobile-horizontal-scroll');
   if (window.matchMedia("(orientation: landscape) and (max-width: 1024px)").matches) {
-    document.getElementById('mobile-horizontal-scroll').style.display = 'block';
-    document.getElementById('mobile-horizontal-scroll').style.zIndex = '9999';
-    // Hide others
+    horizontal.style.display = 'block';
+    // Hide portrait and desktop for safety
     if(document.getElementById('mobile-scroll')) document.getElementById('mobile-scroll').style.display = 'none';
     let container = document.querySelector('.container');
     if(container) container.style.display = 'none';
@@ -1354,11 +1207,9 @@ function setupLandscapeScroll() {
       };
     });
   } else {
-    document.getElementById('mobile-horizontal-scroll').style.display = 'none';
-    // Let other layouts show as normal
+    horizontal.style.display = 'none';
   }
 }
-
 window.addEventListener('DOMContentLoaded', setupLandscapeScroll);
 window.addEventListener('resize', setupLandscapeScroll);
 </script>
