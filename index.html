@@ -443,48 +443,20 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   }
 }
 @media (orientation: landscape) and (max-width: 1024px) {
-  #mobile-horizontal-scroll { display: block !important; }
-  .horizontal-scroll-inner {
-    display: flex !important;
-    flex-direction: row;
-    align-items: stretch;
-    height: 100vh;
-    min-width: 100vw;
-    gap: 2vw;
-    padding: 0 2vw;
-    box-sizing: border-box;
-  }
-  .mobile-section {
-    min-width: 76vw !important;
-    max-width: 78vw !important;
-    height: 80vh !important;
-    max-height: 80vh !important;
-    background: #fff !important;
-    border-radius: 16px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.10) !important;
-    padding: 1.5vw 1.5vw 1vw 1.5vw !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-  /* Cover page row buttons */
   .mobile-links-row {
     display: flex;
     flex-direction: row;
-    gap: 0.6vw;
+    gap: 0.55vw;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 1vw;
+    margin-top: 0.2vw;
   }
   .mobile-links-row button {
     background: #fff;
     color: #405d27;
     border: 2px solid #405d27;
     border-radius: 8px;
-    padding: 0.6vw 2vw;
+    padding: 0.5vw 1.5vw;
     font-size: 1vw;
     font-weight: 500;
     cursor: pointer;
@@ -492,17 +464,21 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     margin-bottom: 0;
     transition: all 0.3s;
   }
-  .mobile-links-row button:hover, .mobile-links-row button:focus {
-    background: #405d27;
-    color: #fff;
+  .skills-split-row {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 0.2vw;
   }
   .skills-bubble-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.16vw;
-    margin-top: 0.1vw;
-    margin-bottom: 0.1vw;
-    justify-content: center;
+    gap: 0.13vw;
+    margin-top: 0.08vw;
+    margin-bottom: 0.08vw;
   }
   .skill-pill-tiny {
     display: inline-block;
@@ -510,17 +486,18 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     color: #405d27;
     background: #e6f4d9;
     border-radius: 999px;
-    padding: 0.09vw 0.5vw;
-    font-size: 0.6vw;
-    margin-bottom: 0.13vw;
+    padding: 0.07vw 0.42vw;
+    font-size: 0.54vw;
+    margin-bottom: 0.08vw;
     text-align: center;
     font-family: 'Roboto',sans-serif;
     font-weight: 500;
-    min-width: 1.9vw;
-    margin-top: 0.05vw;
+    min-width: 1.5vw;
+    margin-top: 0.04vw;
     vertical-align: middle;
-    line-height: 1.1em;
+    line-height: 1.05em;
   }
+}
   .research-row-box {
     display: flex;
     flex-direction: row;
@@ -738,55 +715,59 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
 <div id="mobile-horizontal-scroll" style="display:none;">
   <div class="horizontal-scroll-inner">
     <!-- Cover Page -->
-    <section class="mobile-section mobile-cover" id="mobile-cover-h">
-      <h1 style="font-size:3vw; margin-bottom:0.5vw; margin-top:1vw;">Hi!</h1>
-      <h2 style="font-size:2.2vw; margin-top:0;">I'm Anagha Srikrishna</h2>
-      <p style="font-size:1.5vw; margin:0.8vw 0 0.5vw 0;">Get to know me</p>
-      <img src="cover.png" alt="Anagha"
-        style="max-width:20vw; max-height:13vw; object-fit:contain; margin-bottom:0.8vw;">
-      <div class="mobile-links-row">
-        <button data-scroll-h="about-h">About Me</button>
-        <button data-scroll-h="education-h">Education & Skills</button>
-        <button data-scroll-h="research-h">Research Work</button>
-        <button data-scroll-h="orgs-h">Organizations</button>
-        <button data-scroll-h="contact-h">Contact</button>
-      </div>
-    </section>
+   <!-- COVER PAGE (buttons side by side) -->
+<section class="mobile-section mobile-cover" id="mobile-cover-h">
+  <h1 style="font-size:3vw; margin-bottom:0.2vw; margin-top:1vw;">Hi!</h1>
+  <h2 style="font-size:2.2vw; margin-top:0;">I'm Anagha Srikrishna</h2>
+  <p style="font-size:1.3vw; margin:0.8vw 0 0.4vw 0;">Get to know me</p>
+  <img src="cover.png" alt="Anagha"
+    style="max-width:17vw; max-height:11vw; object-fit:contain; margin-bottom:0.8vw;">
+  <div class="mobile-links-row">
+    <button data-scroll-h="about-h">About Me</button>
+    <button data-scroll-h="education-h">Education & Skills</button>
+    <button data-scroll-h="research-h">Research Work</button>
+    <button data-scroll-h="orgs-h">Organizations</button>
+    <button data-scroll-h="contact-h">Contact</button>
+  </div>
+</section>
 
-    <!-- About Me -->
-    <section class="mobile-section" id="about-h">
-      <div class="page-header" style="font-size:2vw; margin-top:1vw;">About Me</div>
-      <div class="page-content" style="font-size:1vw;">
-        <img src="anagha-2.png" alt="Anagha"
-          style="max-width:17vw; max-height:14vw; object-fit:contain; border-radius:10px; margin-bottom:0.7vw;">
-        <div style="font-family:'Manist', sans-serif; font-size:1.5vw; color:#405d27; margin-bottom:0.5vw;">
-          <b>Hi, I’m Anagha Srikrishna.</b>
-        </div>
-        <div style="font-size:0.85vw;">
-          I’m a Computer Science student at Anna University with a deep interest in machine learning, data mining, and deep learning.<br>
-          Through internships at Wells Fargo and IIT Madras, I’ve worked on research projects that combine real-world data, advanced modeling, and innovative problem-solving.
-          My work focuses on building intelligent systems and extracting meaningful insights, and I’m always exploring new ways to apply my skills to challenging, impactful projects.
-        </div>
-        <a href="/Anagha_Resume_2025.pdf" target="_blank"
-          style="color:#007bff; text-decoration:none; font-size:1vw; display:inline-block; margin-top:0.7vw;">
-          View My Resume ↗
-        </a>
-      </div>
-    </section>
+<!-- ABOUT PAGE (less line space, pic bigger) -->
+<section class="mobile-section" id="about-h">
+  <div class="page-header" style="font-size:2vw; margin-top:1vw;">About Me</div>
+  <div class="page-content" style="font-size:0.95vw; line-height:1.12; margin-top:-0.5vw;">
+    <img src="anagha-2.png" alt="Anagha"
+      style="max-width:19vw; max-height:15vw; object-fit:contain; border-radius:10px; margin-bottom:0.55vw;">
+    <div style="font-family:'Manist', sans-serif; font-size:1.5vw; color:#405d27; margin-bottom:0.3vw;">
+      <b>Hi, I’m Anagha Srikrishna.</b>
+    </div>
+    <div>
+      I’m a Computer Science student at Anna University with a deep interest in machine learning, data mining, and deep learning. Through internships at Wells Fargo and IIT Madras, I’ve worked on research projects that combine real-world data, advanced modeling, and innovative problem-solving. My work focuses on building intelligent systems and extracting meaningful insights, and I’m always exploring new ways to apply my skills to challenging, impactful projects.
+    </div>
+    <a href="/Anagha_Resume_2025.pdf" target="_blank"
+      style="color:#007bff; text-decoration:none; font-size:1vw; display:inline-block; margin-top:0.6vw;">
+      View My Resume ↗
+    </a>
+  </div>
+</section>
 
-    <!-- Education & Skills -->
-    <section class="mobile-section" id="education-h">
-      <div class="page-header" style="font-size:1.7vw; margin-top:1vw;">Education & Skills</div>
-      <div class="page-content" style="font-size:1vw; text-align:center;">
-        <img src="annauniv.png" alt="Anna University"
-          style="display:block; margin:0 auto 0.7vw auto; width:48px; height:36px; border-radius:12px; border:2px solid #405d27;">
-        <div style="font-style:italic; font-size:1vw; margin-bottom:0.7vw;">
-          B.E. Computer Science and Engineering<br>
-          College of Engineering Guindy, Anna University<br>
-          Expected Graduation: 2026
-        </div>
-        <h2 style="color:#405d27; font-size:1.3vw; margin:0.5vw 0 0.5vw 0;">Skills</h2>
-        <div style="margin-bottom:0.5vw;">
+<!-- EDUCATION & SKILLS PAGE: Anna Univ logo left, text right, skills grid -->
+<section class="mobile-section" id="education-h">
+  <div class="page-header" style="font-size:1.7vw; margin-top:1vw;">Education & Skills</div>
+  <div class="page-content">
+    <div style="display:flex; align-items:center; gap:1vw; justify-content:center; margin-bottom:0.7vw;">
+      <img src="annauniv.png" alt="Anna University"
+        style="width:60px; height:43px; border-radius:10px; border:2px solid #405d27;">
+      <span style="font-style:italic; font-size:1vw;">
+        B.E. Computer Science and Engineering<br>
+        College of Engineering Guindy, Anna University<br>
+        Expected Graduation: 2026
+      </span>
+    </div>
+    <h2 style="color:#405d27; font-size:1.3vw; margin:0.2vw 0 0.3vw 0;">Skills</h2>
+    <!-- Skills grid: left Languages+Libraries, right DB+Web -->
+    <div class="skills-split-row">
+      <div style="text-align:left;">
+        <div style="margin-bottom:0.33vw;">
           <b style="color:#405d27;">Languages:</b>
           <div class="skills-bubble-row">
             <span class="skill-pill-tiny">Python</span>
@@ -796,7 +777,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
             <span class="skill-pill-tiny">Bash/Shell</span>
           </div>
         </div>
-        <div style="margin-bottom:0.5vw;">
+        <div>
           <b style="color:#405d27;">Libraries:</b>
           <div class="skills-bubble-row">
             <span class="skill-pill-tiny">PyTorch</span>
@@ -808,7 +789,9 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
             <span class="skill-pill-tiny">Seaborn</span>
           </div>
         </div>
-        <div style="margin-bottom:0.5vw;">
+      </div>
+      <div style="text-align:left;">
+        <div style="margin-bottom:0.33vw;">
           <b style="color:#405d27;">Databases & Cloud:</b>
           <div class="skills-bubble-row">
             <span class="skill-pill-tiny">MySQL</span>
@@ -833,7 +816,9 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Research Projects -->
     <section class="mobile-section" id="research-h">
