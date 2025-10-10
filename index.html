@@ -28,25 +28,58 @@ a:hover {
   transform: scale(1.05);
 }
 /* Scale down entire content on screens smaller than 768px */
+<style>
 @media (max-width: 768px) {
-  #flipbook-container {
-    transform-origin: top left;
-    transform: scale(0.45); /* shrink both height + width */
-    width: 220%;  /* adjust if text cuts off horizontally */
-    height: 220%; /* adjust if vertically overflowing */
+  .flipbook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.8);
+    transform-origin: top center;
+    width: 100vw;
+    overflow-x: hidden;
   }
 
-  /* Optional: adjust buttons and text for smaller screens */
-  button, .page-links button {
-    font-size: 3vw;
-    padding: 0.5em 1em;
+  .page {
+    width: 90vw !important;        /* make both pages same width */
+    margin: 1vh 0;
+    padding: 2vh 3vw;
+    font-size: 3.5vw !important;   /* slightly smaller, still readable */
+    line-height: 1.5em;
   }
 
-  .page-content {
-    font-size: 0.9em;
-    line-height: 1.4em;
+  .page img {
+    max-width: 70px;               /* shrink images */
+    height: auto;
+  }
+
+  .nav-buttons {
+    display: flex !important;      /* make sure they’re visible */
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 2vh;
+  }
+
+  .nav-buttons button {
+    font-size: 3.5vw;
+    padding: 1vh 2vw;
+    border-radius: 10px;
+  }
+
+  .cover-mode {
+    transform: scale(0.8);
+    transform-origin: top center;
+    width: 100vw;
+  }
+
+  .page-links button {
+    font-size: 3.5vw !important;
+    margin: 0.6vh 0;
+    padding: 1vh 2vw;
   }
 }
+</style>
+
   .container {
   position: relative;
   width: 80vw; /* keep same width as flipbook */
