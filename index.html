@@ -31,11 +31,22 @@ a:hover {
 @media (max-width: 768px) {
   #flipbook-container {
     transform-origin: top left;
-    transform: scale(0.4);
-    width: 200%;
+    transform: scale(0.45); /* shrink both height + width */
+    width: 220%;  /* adjust if text cuts off horizontally */
+    height: 220%; /* adjust if vertically overflowing */
+  }
+
+  /* Optional: adjust buttons and text for smaller screens */
+  button, .page-links button {
+    font-size: 3vw;
+    padding: 0.5em 1em;
+  }
+
+  .page-content {
+    font-size: 0.9em;
+    line-height: 1.4em;
   }
 }
-
   .container {
   position: relative;
   width: 80vw; /* keep same width as flipbook */
