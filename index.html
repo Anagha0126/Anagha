@@ -26,7 +26,13 @@ a:hover {
   color: #2e4518;
   transform: scale(1.05);
 }
-
+@media (max-width: 768px) {
+  #flipbook-container {
+    transform-origin: top left;
+    transform: scale(0.45);
+    width: 220%;
+    height: 220%;
+  }
   button, .page-links button {
     font-size: 3vw;
     padding: 0.5em 1em;
@@ -110,7 +116,6 @@ a:hover {
   font-size: 1.5vw;
   color: #405d27;
 }
-
 .page.left .page-number { left: 2vw; }
 .page.right .page-number { right: 2vw; }
 .cover-page .page-number{ transform: translateX(-50%);}
@@ -207,7 +212,15 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
 .close-btn:hover { background: #c9302c; }
 
 /* ------------- MOBILE-ONLY: HIDE DESKTOP, SHOW SCROLLABLE ------------- */
-
+@media (max-width: 768px) {
+  .container, .flipbook-container, .controls { display: none !important; }
+  body {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+  }
   #mobile-scroll {
     display: flex;
     flex-direction: column;
@@ -296,130 +309,10 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     color: #fff;
   }
 }
-
-
-body.is-mobile-device .container,
-body.is-mobile-device .flipbook-container,
-body.is-mobile-device .controls {
-  display: none !important;
-}
-body.is-mobile-device #mobile-scroll {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  width: 98vw;
-  margin: 0 auto;
-  gap: 30px;
-  padding: 4vw 0 12vw 0;
-}
-body.is-mobile-device .mobile-section {
-  width: 92vw;
-  max-width: 490px;
-  background: #fff;
-  border-radius: 16px;
-  margin: 0 auto;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-  padding: 6vw 5vw 4vw 5vw;
-  color: #222;
-  font-family: 'Roboto', sans-serif;
-  position: relative;
-  text-align: center;
-}
-body.is-mobile-device .mobile-section .page-header {
-  font-size: 6vw;
-  color: #405d27;
-  font-weight: 600;
-  margin-bottom: 3vw;
-}
-body.is-mobile-device .mobile-section .page-content {
-  font-size: 3.6vw;
-  line-height: 1.5em;
-  color: #333;
-  text-align: center;
-  margin-bottom: 2vw;
-}
-body.is-mobile-device .mobile-cover {
-  background: #e6f4d9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-body.is-mobile-device .mobile-cover h1 {
-  font-size: 8vw;
-  margin: 0.2em 0;
-  color: #222;
-  font-family: 'Fredoka One', sans-serif;
-  font-weight: 700;
-}
-body.is-mobile-device .mobile-cover h2 {
-  font-size: 6vw;
-  color: #405d27;
-  margin: 0.2em 0 0.5em 0;
-  font-weight: 700;
-}
-body.is-mobile-device .mobile-cover p {
-  font-size: 4vw;
-  color: #333;
-  margin-bottom: 2em;
-  font-weight: 500;
-}
-body.is-mobile-device .mobile-links {
-  display: flex;
-  flex-direction: column;
-  gap: 2vw;
-  width: 100%;
-  margin-top: 0.5em;
-  align-items: center;
-}
-body.is-mobile-device .mobile-links button {
-  background: #fff;
-  color: #405d27;
-  border: 2px solid #405d27;
-  border-radius: 8px;
-  padding: 3vw 7vw;
-  font-size: 4.2vw;
-  font-weight: 500;
-  cursor: pointer;
-  width: 80vw;
-  max-width: 340px;
-  margin-bottom: 1vw;
-  transition: all 0.3s;
-}
-body.is-mobile-device .mobile-links button:hover,
-body.is-mobile-device .mobile-links button:focus {
-  background: #405d27;
-  color: #fff;
-}
-
-/* Pills for skills */
-body.is-mobile-device .skill-pill {
-  display: inline-block;
-  border: 1px solid #405d27;
-  color: #405d27;
-  background: #e6f4d9;
-  border-radius: 999px;
-  padding: 0.8vw 3vw;
-  font-size: 3.3vw;
-  margin-bottom: 1vw;
-  margin-right: 0;
-  text-align: center;
-  font-family: 'Roboto',sans-serif;
-  font-weight: 500;
-  min-width: 12vw;
-  margin-top: 0.5vw;
-}
 </style>
 </head>
 <body>
-<script>
-if (
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-  || (navigator.maxTouchPoints && navigator.maxTouchPoints > 1)
-) {
-  document.body.classList.add('is-mobile-device');
-}
-</script>
+
 <!-- ------------- DESKTOP FLIPBOOK (YOUR CODE, UNTOUCHED) ------------- -->
 <div class="container">
   <div class="flipbook-container" id="flipbook"></div>
@@ -434,7 +327,7 @@ if (
 </div>
 
 <!-- ------------- MOBILE SCROLLABLE SECTIONS ------------- -->
-<div id="mobile-scroll">
+<div id="mobile-scroll" style="display:none;">
   <section class="mobile-section mobile-cover" id="mobile-cover">
     <h1>Hi!</h1>
     <h2>I'm Anagha Srikrishna</h2>
@@ -469,99 +362,73 @@ if (
         <span style="font-style:italic; font-size:3.5vw;">B.E. Computer Science and Engineering<br>College of Engineering Guindy, Anna University<br>Expected Graduation: 2026</span>
       </div>
       <h2 style="color:#405d27; font-size:5vw; text-align:center;">Skills</h2>
-      <div style="margin-bottom:2vw;">
-        <b style="color:#405d27;">Languages:</b><br>
-        <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">C/C++</span>
-          <span class="skill-pill">Java</span>
-          <span class="skill-pill">SQL</span>
-          <span class="skill-pill">Bash/Shell</span>
-        </div>
-      </div>
-      <div style="margin-bottom:2vw;">
-        <b style="color:#405d27;">Libraries:</b><br>
-        <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-          <span class="skill-pill">PyTorch</span>
-          <span class="skill-pill">Scikit-learn</span>
-          <span class="skill-pill">OpenCV</span>
-          <span class="skill-pill">Pandas</span>
-          <span class="skill-pill">NumPy</span>
-          <span class="skill-pill">Matplotlib</span>
-          <span class="skill-pill">Seaborn</span>
-        </div>
-      </div>
-      <div style="margin-bottom:2vw;">
-        <b style="color:#405d27;">Databases & Cloud:</b><br>
-        <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-          <span class="skill-pill">MySQL</span>
-          <span class="skill-pill">MongoDB</span>
-          <span class="skill-pill">SQLite</span>
-          <span class="skill-pill">AWS</span>
-          <span class="skill-pill">Azure</span>
-          <span class="skill-pill">Docker</span>
-          <span class="skill-pill">Git</span>
-        </div>
-      </div>
       <div>
+        <b style="color:#405d27;">Languages:</b><br>
+        <span style="border:1px solid #405d27; color:#405d27; border-radius:8px; padding:3px 7px; font-size:3vw;">Python, C/C++, Java, SQL, Bash/Shell</span>
+      </div>
+      <div style="margin-top:1.2vw;">
+        <b style="color:#405d27;">Libraries:</b><br>
+        <span style="border:1px solid #405d27; color:#405d27; border-radius:8px; padding:3px 7px; font-size:3vw;">PyTorch, Scikit-learn, OpenCV, Pandas, NumPy, Matplotlib, Seaborn</span>
+      </div>
+      <div style="margin-top:1.2vw;">
+        <b style="color:#405d27;">Databases & Cloud:</b><br>
+        <span style="border:1px solid #405d27; color:#405d27; border-radius:8px; padding:3px 7px; font-size:3vw;">MySQL, MongoDB, SQLite, AWS, Azure, Docker, Git</span>
+      </div>
+      <div style="margin-top:1.2vw;">
         <b style="color:#405d27;">Web & Tools:</b><br>
-        <div style="display:flex; flex-wrap:wrap; gap:1vw; margin:1vw 0;">
-          <span class="skill-pill">HTML</span>
-          <span class="skill-pill">CSS</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">React.js</span>
-          <span class="skill-pill">Node.js</span>
-          <span class="skill-pill">REST APIs</span>
-          <span class="skill-pill">Keycloak</span>
-        </div>
+        <span style="border:1px solid #405d27; color:#405d27; border-radius:8px; padding:3px 7px; font-size:3vw;">HTML, CSS, JavaScript, React.js, Node.js, REST APIs, Keycloak</span>
       </div>
     </div>
   </section>
   <section class="mobile-section" id="research">
     <div class="page-header">Research Projects</div>
-    <div class="page-content" style="text-align:center;">
-      <!-- Project 1 -->
-      <div style="margin-bottom:7vw;">
-        <img src="spatio.png" alt="Spatio-Temporal" style="display:block; margin: 0 auto 2vw auto; width:120px; height:175px; border-radius:16px; object-fit:cover;">
-        <div>
+    <div class="page-content" style="text-align:left;">
+      <div style="margin-bottom:3vw;">
+        <div style="display:flex; gap:2vw; align-items:flex-start;">
+          <img src="spatio.png" alt="Spatio-Temporal" style="width:55px; height:90px; border-radius:10px;">
+          <div>
           <b>Spatio-Temporal Analysis of Air Quality Disparities Across Urban and Rural India
             <a href="/Spatio-Temporal.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
           </b>
           <br>
           Conducted spatio-temporal analysis of air quality across 5 urban-rural pairs in India using 2.5+ years of multi-pollutant data, machine learning, and clustering; developed a Pollution Disparity Index (PDI) to quantify AQI variations and inform policy.
+          </div>
         </div>
       </div>
-      <!-- Project 2 -->
-      <div style="margin-bottom:7vw;">
-        <img src="forecast.png" alt="Air Pollution" style="display:block; margin: 0 auto 2vw auto; width:110px; height:130px; border-radius:16px; object-fit:cover;">
-        <div>
-          <b>Automated Air Pollution Forecasting Using Time Series Models
-            <a href="/Automated.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-          </b>
-          <br>
-          Developed an automated air quality forecasting system for Chennai using SARIMA (outperforming ARIMA and Prophet), real-time data, and daily retraining, achieving 13.6% MAPE.
+      <div style="margin-bottom:3vw;">
+        <div style="display:flex; gap:2vw; align-items:flex-start;">
+          <img src="forecast.png" alt="Air Pollution" style="width:55px; height:60px; border-radius:10px;">
+          <div>
+            <b>Automated Air Pollution Forecasting Using Time Series Models
+              <a href="/Automated.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
+            </b>
+            <br>
+            Developed an automated air quality forecasting system for Chennai using SARIMA (outperforming ARIMA and Prophet), real-time data, and daily retraining, achieving 13.6% MAPE.
+          </div>
         </div>
       </div>
-      <!-- Project 3 -->
-      <div style="margin-bottom:7vw;">
-        <img src="aoi.png" alt="AOI" style="display:block; margin: 0 auto 2vw auto; width:110px; height:70px; border-radius:16px; object-fit:cover;">
-        <div>
-          <b>AOI-Inspired Descriptive Rule Mining
-            <a href="/AOI.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-          </b>
-          <br>
-          Adapted Attribute-Oriented Induction for non-hierarchical data to extract interpretable behavioral insights from Amazon Fashion Reviews.
+      <div style="margin-bottom:3vw;">
+        <div style="display:flex; gap:2vw; align-items:flex-start;">
+          <img src="aoi.png" alt="AOI" style="width:55px; height:35px; border-radius:10px;">
+          <div>
+            <b>AOI-Inspired Descriptive Rule Mining
+              <a href="/AOI.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
+            </b>
+            <br>
+            Adapted Attribute-Oriented Induction for non-hierarchical data to extract interpretable behavioral insights from Amazon Fashion Reviews.
+          </div>
         </div>
       </div>
-      <!-- Project 4 -->
       <div>
-        <img src="aml.png" alt="AML" style="display:block; margin: 0 auto 2vw auto; width:110px; height:95px; border-radius:16px; object-fit:cover;">
-        <div>
-          <b>Weighted Ensemble Outlier Detection for Anti-Money Laundering
-            <a href="/Weighted.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
-          </b>
-          <br>
-          Developed a weighted ensemble for anti-money laundering detection, integrating statistical, density-, distance-, and graph-based models; achieved 92% sensitivity and 81% specificity on IBM AML dataset.
+        <div style="display:flex; gap:2vw; align-items:flex-start;">
+          <img src="aml.png" alt="AML" style="width:55px; height:40px; border-radius:10px;">
+          <div>
+            <b>Weighted Ensemble Outlier Detection for Anti-Money Laundering
+              <a href="/Weighted.pdf" target="_blank" style="color:#007bff; text-decoration:none;">View Paper ↗</a>
+            </b>
+            <br>
+            Developed a weighted ensemble for anti-money laundering detection, integrating statistical, density-, distance-, and graph-based models; achieved 92% sensitivity and 81% specificity on IBM AML dataset.
+          </div>
         </div>
       </div>
     </div>
@@ -589,8 +456,6 @@ if (
                style="height:1em;width:1em;filter:invert(1);margin-right:1vw;">
           2022103066@student.annauniv.edu
         </a>
-        <!-- Add extra margin above LinkedIn for "come a little more down" -->
-        <div style="height:4vw;"></div>
         <a href="https://www.linkedin.com/in/anagha-srikrishna" target="_blank"
            style="display:flex;align-items:center;gap:1vw;background-color:#405d27;color:white;font-size:3.8vw;padding:2vw 8vw;border-radius:16px;text-decoration:none;transition:all 0.3s;">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
@@ -605,7 +470,6 @@ if (
     </div>
   </section>
 </div>
-
 
 <!-- ------------- DESKTOP FLIPBOOK JS (YOURS, UNTOUCHED) ------------- -->
 <script>
