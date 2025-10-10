@@ -677,23 +677,26 @@ function renderCover() {
 
 
 function isMobile() {
-  return window.innerWidth <= 768;
+  return window.innerWidth <= 768; // adjust breakpoint if needed
 }
 
 function renderPages() {
   flipbook.innerHTML = '';
 
   if (isMobile()) {
-    // Mobile: render one page at a time
+    // Mobile: show one page full screen
     const page = document.createElement('div');
-    page.className = 'page';
-    page.innerHTML = pages[currentLeftPage]; // only one page
+    page.className = 'page mobile';
+    page.style.width = '100vw';
+    page.style.height = '100vh';
+    page.style.padding = '4vh 4vw';
+    page.innerHTML = pages[currentLeftPage]; // make sure pages[] has all content
     flipbook.appendChild(page);
 
-    // Hide left/right specific classes
+    // Hide desktop-only classes
     flipbook.classList.remove('cover-mode', 'last-page-mode');
   } else {
-    // Desktop: render book effect (2 pages)
+    // Desktop: normal book effect (2 pages)
     const leftPage = document.createElement('div');
     leftPage.className = 'page left';
     leftPage.innerHTML = pages[currentLeftPage];
@@ -702,7 +705,6 @@ function renderPages() {
     rightPage.className = 'page right';
     rightPage.innerHTML = pages[currentLeftPage + 1] || '';
 
-    flipbook.innerHTML = '';
     flipbook.appendChild(leftPage);
     flipbook.appendChild(rightPage);
   }
@@ -710,28 +712,49 @@ function renderPages() {
   updateButtons();
 }
 
-
-
-function renderLastPage() {
-  flipbook.classList.add('last-page-mode');
-  flipbook.classList.remove('cover-mode');
+// Also adjust cover page for mobile
+function renderCover() {
   flipbook.innerHTML = '';
 
-  const lastPageNum = 6;
-  const lastPage = document.createElement('div');
-  lastPage.className = 'last-page'; // same as normal pages
-  lastPage.innerHTML = `
-    ${pageHeaders[lastPageNum] ? `<div class="page-header">${pageHeaders[lastPageNum]}</div>` : ''}
-    <div class="page-content">${pagesContent[lastPageNum] || ''}</div>
-    <div class="page-number">${lastPageNum}</div>
-  `;
+  const cover = document.createElement('div');
+  cover.className = 'cover-page';
+  cover.innerHTML = coverContent; // make sure coverContent has all HTML
 
-  flipbook.appendChild(lastPage);
+  if (isMobile()) {
+    cover.style.width = '100vw';
+    cover.style.height = '100vh';
+    cover.style.padding = '4vh 4vw';
+  }
 
-  // hide nav buttons on last page
-  prevBtn.style.display = "none";
-  nextBtn.style.display = "none";
+  flipbook.appendChild(cover);
+
+  // Hide nav buttons if you want on mobile
+  prevBtn.style.display = isMobile() ? 'none' : 'block';
+  nextBtn.style.display = 'block';
 }
+
+// Similar for last page
+function renderLastPage() {
+  flipbook.innerHTML = '';
+
+  const last = document.createElement('div');
+  last.className = 'last-page';
+  last.innerHTML = lastPageContent;
+
+  if (isMobile()) {
+    last.style.width = '100vw';
+    last.style.height = '100vh';
+    last.style.padding = '4vh 4vw';
+  }
+
+  flipbook.appendChild(last);
+
+  prevBtn.style.display = isMobile() ? 'block' : 'block';
+  nextBtn.style.display = isMobile() ? 'none' : 'block';
+}
+
+
+
 
 
 
