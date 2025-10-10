@@ -30,43 +30,65 @@ a:hover {
 /* Scale down entire content on screens smaller than 768px */
 <style>
 @media (max-width: 768px) and (orientation: portrait) {
-  /* Flipbook container full screen */
+
+  /* Flipbook container takes entire viewport */
   #flipbook {
     width: 100vw !important;
     height: 100vh !important;
-    flex-direction: column !important;
     border: none !important;
     box-shadow: none !important;
     overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  /* Each page full screen */
+  /* Every page is fullscreen */
   .page, .cover-page, .last-page {
     width: 100vw !important;
     height: 100vh !important;
-    padding: 6vh 5vw !important;
-    overflow-y: auto; /* scroll if content is tall */
+    padding: 4vh 5vw !important;
     border: none !important;
+    box-sizing: border-box;
+    overflow-y: auto; /* scroll if needed */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* Page navigation buttons */
+  /* Adjust page links/buttons */
+  .page-links {
+    position: fixed !important;
+    bottom: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 2vw;
+    flex-wrap: wrap;
+  }
+
+  /* Navigation arrows */
   button.nav {
     position: fixed !important;
     bottom: 2vh !important;
-    top: auto !important;
-    width: 10vw !important;
-    height: auto;
+    width: 12vw !important;
+    height: auto !important;
     z-index: 1000;
   }
-
   #prevBtn { left: 5vw !important; }
   #nextBtn { right: 5vw !important; }
 
-  /* Optional: adjust font size slightly */
-  .page-content {
-    font-size: 0.9em;
-    line-height: 1.4em;
+  /* Optional: slightly smaller images so content fits */
+  .page img {
+    max-width: 60% !important;
+    height: auto !important;
   }
+
+  /* Text sizing for readability */
+  .page-content {
+    font-size: 1em !important;
+    line-height: 1.4em !important;
+  }
+
 }
 
 
