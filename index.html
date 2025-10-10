@@ -358,10 +358,44 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     margin-top: 0.5vw;
   }
 }
+body.is-mobile-device .container,
+body.is-mobile-device .flipbook-container,
+body.is-mobile-device .controls {
+  display: none !important;
+}
+body.is-mobile-device #mobile-scroll {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: 98vw;
+  margin: 0 auto;
+  gap: 30px;
+  padding: 4vw 0 12vw 0;
+}
+body.is-mobile-device .mobile-section {
+  width: 92vw;
+  max-width: 490px;
+  background: #fff;
+  border-radius: 16px;
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  padding: 6vw 5vw 4vw 5vw;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  text-align: center;
+}
 </style>
 </head>
 <body>
-
+<script>
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  || (navigator.maxTouchPoints && navigator.maxTouchPoints > 1)
+) {
+  document.body.classList.add('is-mobile-device');
+}
+</script>
 <!-- ------------- DESKTOP FLIPBOOK (YOUR CODE, UNTOUCHED) ------------- -->
 <div class="container">
   <div class="flipbook-container" id="flipbook"></div>
