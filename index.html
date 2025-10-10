@@ -328,15 +328,34 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   }
 }
 
-@media (max-width: 1024px) and (orientation: landscape) {
-  #mobile-scroll {
-    align-items: center;
+@media (max-width: 1024px) {
+  .container, .flipbook-container, .controls { display: none !important; }
+  #mobile-scroll { display: flex !important; }
+  body {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
   }
-  .mobile-section {
-    width: 98vw;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+/* Also update skill-pill pills if you have them: */
+@media (max-width: 1024px) {
+  .skill-pill {
+    display: inline-block;
+    border: 1px solid #405d27;
+    color: #405d27;
+    background: #e6f4d9;
+    border-radius: 999px;
+    padding: 0.8vw 3vw;
+    font-size: 3.3vw;
+    margin-bottom: 1vw;
+    text-align: center;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    min-width: 12vw;
+    margin-top: 0.5vw;
   }
 }
 </style>
