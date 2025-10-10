@@ -29,16 +29,10 @@ a:hover {
 }
 /* Scale down entire content on screens smaller than 768px */
 @media (max-width: 768px) {
-  body {
-    transform: scale(0.7);       /* Shrinks content to 70% */
-    transform-origin: top left;  /* Keeps it aligned top-left */
-    width: 142.857%;             /* Correct horizontal overflow */
-  }
-
-  /* Optional: reduce gaps/margins if needed */
-  .cover-page, .page-links, .research-section {
-    gap: 1vh !important;
-    padding: 1vh !important;
+  #flipbook-container {
+    transform-origin: top left;
+    transform: scale(0.65);
+    width: 150%;
   }
 }
 
