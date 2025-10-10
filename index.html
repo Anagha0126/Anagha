@@ -398,6 +398,65 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   /* Hide the default portrait scroll */
   #mobile-scroll { display: none !important; }
 }
+@media (orientation: landscape) and (max-width: 1024px) {
+  body { /* Make sure body fills the screen and is not flex! */
+    display: block !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+    background: url('bg.png') no-repeat center center fixed !important;
+    background-size: cover !important;
+  }
+  /* HIDE all other containers and portrait scroll */
+  .container,
+  .flipbook-container,
+  .controls,
+  #mobile-scroll {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    z-index: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* SHOW horizontal scroll layout, fill the viewport */
+  #mobile-horizontal-scroll {
+    display: block !important;
+    position: fixed !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    background: transparent !important;
+    z-index: 9999 !important;
+  }
+  .horizontal-scroll-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 100vh !important;
+    align-items: center !important;
+  }
+  .mobile-section {
+    min-width: 92vw !important;
+    max-width: 500px !important;
+    height: 92vh !important;
+    margin: 0 2vw !important;
+    background: #fff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.10) !important;
+    padding: 6vw 5vw 4vw 5vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 10000 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1277,10 +1336,14 @@ window.addEventListener('resize', setupMobileScroll);
 </script>
 <script>
 function setupLandscapeScroll() {
-  // Only for landscape and mobile
   if (window.matchMedia("(orientation: landscape) and (max-width: 1024px)").matches) {
     document.getElementById('mobile-horizontal-scroll').style.display = 'block';
-    // Scroll to section on button click
+    document.getElementById('mobile-horizontal-scroll').style.zIndex = '9999';
+    // Hide others
+    if(document.getElementById('mobile-scroll')) document.getElementById('mobile-scroll').style.display = 'none';
+    let container = document.querySelector('.container');
+    if(container) container.style.display = 'none';
+    // Button scroll logic
     document.querySelectorAll('.mobile-links button[data-scroll-h]').forEach(btn => {
       btn.onclick = function() {
         const id = btn.getAttribute('data-scroll-h');
@@ -1292,8 +1355,10 @@ function setupLandscapeScroll() {
     });
   } else {
     document.getElementById('mobile-horizontal-scroll').style.display = 'none';
+    // Let other layouts show as normal
   }
 }
+
 window.addEventListener('DOMContentLoaded', setupLandscapeScroll);
 window.addEventListener('resize', setupLandscapeScroll);
 </script>
