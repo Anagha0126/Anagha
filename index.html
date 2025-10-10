@@ -29,53 +29,43 @@ a:hover {
 }
 /* Scale down entire content on screens smaller than 768px */
 <style>
-@media (max-width: 768px) {
-  .flipbook {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(0.8);
-    transform-origin: top center;
-    width: 100vw;
-    overflow-x: hidden;
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Flipbook container full screen */
+  #flipbook {
+    width: 100vw !important;
+    height: 100vh !important;
+    flex-direction: column !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden;
   }
 
-  .page {
-    width: 90vw !important;        /* make both pages same width */
-    margin: 1vh 0;
-    padding: 2vh 3vw;
-    font-size: 3.5vw !important;   /* slightly smaller, still readable */
-    line-height: 1.5em;
+  /* Each page full screen */
+  .page, .cover-page, .last-page {
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 6vh 5vw !important;
+    overflow-y: auto; /* scroll if content is tall */
+    border: none !important;
   }
 
-  .page img {
-    max-width: 70px;               /* shrink images */
+  /* Page navigation buttons */
+  button.nav {
+    position: fixed !important;
+    bottom: 2vh !important;
+    top: auto !important;
+    width: 10vw !important;
     height: auto;
+    z-index: 1000;
   }
 
-  .nav-buttons {
-    display: flex !important;      /* make sure they’re visible */
-    justify-content: space-between;
-    width: 90%;
-    margin-top: 2vh;
-  }
+  #prevBtn { left: 5vw !important; }
+  #nextBtn { right: 5vw !important; }
 
-  .nav-buttons button {
-    font-size: 3.5vw;
-    padding: 1vh 2vw;
-    border-radius: 10px;
-  }
-
-  .cover-mode {
-    transform: scale(0.8);
-    transform-origin: top center;
-    width: 100vw;
-  }
-
-  .page-links button {
-    font-size: 3.5vw !important;
-    margin: 0.6vh 0;
-    padding: 1vh 2vw;
+  /* Optional: adjust font size slightly */
+  .page-content {
+    font-size: 0.9em;
+    line-height: 1.4em;
   }
 }
 
