@@ -323,6 +323,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     display: block !important;
     min-height: 100vh !important;
     height: 100vh !important;
+    width: 100vw !important;
     background: url('bg.png') no-repeat center center fixed !important;
     background-size: cover !important;
     overflow: hidden !important;
@@ -338,11 +339,13 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     background: transparent !important;
     z-index: 999999 !important;
     -webkit-overflow-scrolling: touch;
+    /* Always show scroll, no scroll bar hiding */
+    scroll-snap-type: x mandatory;
   }
   .horizontal-scroll-inner {
     display: flex !important;
     flex-direction: row !important;
-    align-items: stretch !important;
+    align-items: center !important;
     height: 100vh !important;
     min-width: 100vw !important;
     padding: 0 !important;
@@ -351,43 +354,50 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     box-sizing: border-box !important;
   }
   .mobile-section {
-    min-width: 80vw !important;
-    max-width: 82vw !important;
-    height: auto !important;
-    max-height: 92vh !important;
+    box-sizing: border-box !important;
+    min-width: 74vw !important;
+    max-width: 76vw !important;
+    height: 80vh !important;
+    max-height: 82vh !important;
     margin: 0 2vw !important;
     background: #fff !important;
     border-radius: 16px !important;
     box-shadow: 0 6px 20px rgba(0,0,0,0.10) !important;
-    padding: 3vw 2vw 2vw 2vw !important;
+    padding: 2vw 2vw 2vw 2vw !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     align-items: center !important;
     z-index: 10000 !important;
-    box-sizing: border-box !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    scroll-snap-align: center;
+    /* Make smaller cards! */
+    font-size: 1em !important;
   }
   .mobile-section .page-header {
-    font-size: 5vw !important;
+    font-size: 4vw !important;
     color: #405d27;
     font-weight: 600;
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
     word-break: break-word;
   }
   .mobile-section .page-content {
-    font-size: 3vw !important;
+    font-size: 2.3vw !important;
     line-height: 1.5em;
     color: #333;
     text-align: center;
     margin-bottom: 2vw;
     word-break: break-word;
   }
+  .mobile-cover h1 { font-size: 7vw !important; }
+  .mobile-cover h2 { font-size: 5vw !important; }
+  .mobile-cover p  { font-size: 3vw !important; }
+
   .mobile-links {
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    gap: 1.5vw;
     width: 100%;
     margin-top: 0.5em;
     align-items: center;
@@ -397,13 +407,13 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     color: #405d27;
     border: 2px solid #405d27;
     border-radius: 8px;
-    padding: 2vw 5vw;
-    font-size: 3vw;
+    padding: 1.5vw 4vw;
+    font-size: 2.2vw;
     font-weight: 500;
     cursor: pointer;
-    width: 55vw;
-    max-width: 300px;
-    margin-bottom: 1vw;
+    width: 45vw;
+    max-width: 240px;
+    margin-bottom: 0.8vw;
     transition: all 0.3s;
   }
   .mobile-links button:hover, .mobile-links button:focus {
@@ -416,14 +426,20 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     color: #405d27;
     background: #e6f4d9;
     border-radius: 999px;
-    padding: 0.5vw 2vw;
-    font-size: 2.3vw;
-    margin-bottom: 1vw;
+    padding: 0.4vw 1.6vw;
+    font-size: 1.6vw;
+    margin-bottom: 0.6vw;
     text-align: center;
     font-family: 'Roboto',sans-serif;
     font-weight: 500;
-    min-width: 8vw;
-    margin-top: 0.5vw;
+    min-width: 7vw;
+    margin-top: 0.3vw;
+  }
+  img, video {
+    max-width: 90%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1vw;
   }
 }
 </style>
