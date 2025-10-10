@@ -443,6 +443,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   }
 }
 @media (orientation: landscape) and (max-width: 1024px) {
+  /* Cover page buttons row */
   .mobile-links-row {
     display: flex;
     flex-direction: row;
@@ -464,6 +465,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     margin-bottom: 0;
     transition: all 0.3s;
   }
+  /* Skills layout */
   .skills-split-row {
     display: flex;
     flex-direction: row;
@@ -473,7 +475,13 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     width: 100%;
     margin-top: 0.2vw;
   }
- .skills-bubble-row { display: flex; flex-wrap: wrap; gap: 0.13vw; margin-top: 0.08vw; margin-bottom: 0.08vw; }
+  .skills-bubble-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.13vw;
+    margin-top: 0.08vw;
+    margin-bottom: 0.08vw;
+  }
   .skill-pill-tiny {
     display: inline-block;
     border: 1px solid #405d27;
@@ -491,46 +499,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     vertical-align: middle;
     line-height: 1.05em;
   }
-}
-  .research-row-box {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: 0.7vw;
-    gap: 0.9vw;
-  }
-  .research-img {
-    flex-shrink: 0;
-    border-radius: 8px;
-    margin-top: 0.2vw;
-  }
-  .research-text-box {
-    border: 1px solid #405d27;
-    border-radius: 10px;
-    padding: 0.4vw 0.7vw;
-    background: #f6fbe9;
-    font-size: 0.9vw;
-    line-height: 1.16em;
-    color: #222;
-    width: 100%;
-  }
-}
-@media (orientation: landscape) and (max-width: 1024px) {
-  .research-row-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 0.7vw;
-    gap: 0.8vw;
-    width: 100%;
-  }
-  .research-img {
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: #e6f4d9;
-  }
-
-@media (orientation: landscape) and (max-width: 1024px) {
+  /* Research 2x2 grid */
   .research-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -544,7 +513,40 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    /* margin-bottom: 0; -- grid handles gap */
+    height: 100%;
+    /* No margin-bottom, grid handles gap */
+  }
+  .research-img {
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #e6f4d9;
+    margin-top: 0.2vw;
+    margin-right: 1vw;
+  }
+  .research-text-box {
+    border: 1px solid #405d27;
+    border-radius: 10px;
+    padding: 0.4vw 0.7vw;
+    background: #f6fbe9;
+    font-size: 0.9vw;
+    line-height: 1.16em;
+    color: #222;
+    width: 13vw;         /* Or your preferred width */
+    min-width: 0;
+    min-height: 4vw;
+    max-height: 8vw;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-right: 0.3vw;
+  }
+  .research-text-box > div {
+    width: 100%;
+    line-height: 1.13;
+    font-size: inherit;
   }
 }
 </style>
