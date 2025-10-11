@@ -733,7 +733,7 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
       </div>
       <div style="margin-top:5vw; font-size:5vw; color:#2e8b57; font-weight:bold;">Let’s Keep in Touch!</div>
       <div style="margin-top:2vw;">
-        <a href="#mobile-cover" style="color:#2e8b57;font-weight:bold;text-decoration:underline;font-size:4vw;">Go to Cover Page</a>
+        <a href="#mobile-cover" style="color:#2e8b57;font-weight:bold;text-decoration:underline;font-size:4vw;">Go to Home Page</a>
       </div>
     </div>
   </section>
@@ -743,9 +743,9 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   <div class="horizontal-scroll-inner">
     <!-- Cover Page -->
    <!-- COVER PAGE (buttons side by side) -->
-<section class="mobile-section mobile-cover" id="mobile-cover-h">
+<section class="mobile-section mobile-cover" id="mobile-cover-h" style="overflow:visible; max-height:none; height:auto;">
   <h1 style="font-size:3vw; margin-bottom:0.2vw; margin-top:1vw;">Hi!</h1>
-  <h2 style="font-size:2.2vw; margin-top:0;color: #405d27;">I'm Anagha Srikrishna</h2>
+  <h2 style="font-size:2.2vw; margin-top:0; color:#405d27;">I'm Anagha Srikrishna</h2>
   <p style="font-size:1.3vw; margin:0.8vw 0 0.4vw 0;">Get to know me</p>
   <img src="cover.png" alt="Anagha"
     style="max-width:17vw; max-height:11vw; object-fit:contain; margin-bottom:0.8vw;">
@@ -758,10 +758,10 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
   </div>
 </section>
 
-<!-- ABOUT PAGE (less line space, pic bigger) -->
-<section class="mobile-section" id="about-h">
+<!-- ABOUT PAGE (less line space, pic bigger, non-scrollable) -->
+<section class="mobile-section" id="about-h" style="overflow:visible; max-height:none; height:auto;">
   <div class="page-header" style="font-size:2vw; margin-top:1vw;">About Me</div>
-  <div class="page-content" style="font-size:0.95vw; line-height:1.12; margin-top:-0.5vw;">
+  <div class="page-content" style="font-size:0.95vw; line-height:1.12; margin-top:-0.5vw; overflow:visible; max-height:none; height:auto;">
     <img src="anagha-2.png" alt="Anagha"
       style="max-width:19vw; max-height:15vw; object-fit:contain; border-radius:10px; margin-bottom:0.55vw;">
     <div style="font-family:'Manist', sans-serif; font-size:1.5vw; color:#405d27; margin-bottom:0.3vw;">
@@ -917,29 +917,29 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     </section>
 
     <!-- Contact -->
-    <section class="mobile-section" id="contact-h">
-      <div class="page-content" style="font-size:1.5vw; text-align:center;">
-        <img src="contact.png" alt="Contact" style="height:64px; width:96px; margin-bottom:1vw;">
-        <div style="display:flex; flex-direction:column; gap:1vw; align-items:center;">
-          <a href="mailto:2022103066@student.annauniv.edu"
-             style="display:flex;align-items:center;gap:0.7vw;background-color:#405d27;color:white;font-size:1.4vw;padding:1vw 3vw;border-radius:14px;text-decoration:none;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/microsoftoutlook.svg"
-                 style="height:1em;width:1em;filter:invert(1);margin-right:0.3vw;">
-            2022103066@student.annauniv.edu
-          </a>
-          <a href="https://www.linkedin.com/in/anagha-srikrishna" target="_blank"
-             style="display:flex;align-items:center;gap:0.7vw;background-color:#405d27;color:white;font-size:1.2vw;padding:1vw 3vw;border-radius:14px;text-decoration:none;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
-                 style="height:1em;width:1em;filter:invert(1);margin-right:0.3vw;">
-            LinkedIn: anagha-srikrishna
-          </a>
-        </div>
-        <div style="margin-top:1.7vw; font-size:1.5vw; color:#2e8b57; font-weight:bold;">Let’s Keep in Touch!</div>
-        <div style="margin-top:0.5vw;">
-          <a href="#mobile-cover-h" style="color:#2e8b57;font-weight:bold;text-decoration:underline;font-size:1.2vw;">Go to Cover Page</a>
-        </div>
-      </div>
-    </section>
+   <section class="mobile-section" id="contact-h">
+  <div class="page-content" style="font-size:2vw; text-align:center;">
+    <img src="contact.png" alt="Contact" style="height:80px; width:120px; margin-bottom:1vw;">
+    <div style="display:flex; flex-direction:column; gap:1.5vw; align-items:center;">
+      <a href="mailto:2022103066@student.annauniv.edu"
+         style="display:flex;align-items:center;gap:1vw;background-color:#405d27;color:white;font-size:2vw;padding:0.7vw 2vw;border-radius:8px;text-decoration:none; margin-bottom:0.6vw; border:1.5px solid #2e8b57;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/microsoftoutlook.svg"
+             style="height:1.2em;width:1.2em;filter:invert(1);margin-right:0.5vw;">
+        2022103066@student.annauniv.edu
+      </a>
+      <a href="https://www.linkedin.com/in/anagha-srikrishna" target="_blank"
+         style="display:flex;align-items:center;gap:1vw;background-color:#405d27;color:white;font-size:1.8vw;padding:0.7vw 2vw;border-radius:8px;text-decoration:none; margin-bottom:0.6vw; border:1.5px solid #2e8b57;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
+             style="height:1.2em;width:1.2em;filter:invert(1);margin-right:0.5vw;">
+        LinkedIn: anagha-srikrishna
+      </a>
+    </div>
+    <div style="margin-top:2vw; font-size:2vw; color:#2e8b57; font-weight:bold;">Let’s Keep in Touch!</div>
+    <div style="margin-top:1vw;">
+      <a href="#mobile-cover-h" style="color:#2e8b57;font-weight:bold;text-decoration:underline;font-size:1.5vw;">Go to Home Page</a>
+    </div>
+  </div>
+</section>
   </div>
 </div>
 </section>
@@ -1214,7 +1214,7 @@ const pagesContent = [
     <a href="javascript:void(0);" 
        onclick="renderCover()" 
        style="color:#2e8b57; font-weight:bold; text-decoration:underline; font-size:1.5vw;">
-        Go to Cover Page
+        Go to Home Page
     </a>
 </div>
 </div>
