@@ -549,6 +549,32 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
     font-size: inherit;
   }
 }
+@media (orientation: landscape) and (max-width: 1024px) {
+  .skills-bubble-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25vw;
+    margin-top: 0.12vw;
+    margin-bottom: 0.12vw;
+  }
+  .skill-pill-big {
+    display: inline-block;
+    border: 1.5px solid #405d27;
+    color: #405d27;
+    background: #e6f4d9;
+    border-radius: 999px;
+    padding: 0.23vw 1.1vw;
+    font-size: 1.1vw;
+    margin-bottom: 0.11vw;
+    text-align: center;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 600;
+    min-width: 2.5vw;
+    margin-top: 0.05vw;
+    vertical-align: middle;
+    line-height: 1.12em;
+  }
+}
 </style>
 </head>
 <body>
@@ -778,75 +804,74 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
 </section>
 
 <!-- EDUCATION & SKILLS PAGE: Anna Univ logo left, text right, skills grid -->
-<section class="mobile-section" id="education-h">
-  <div class="page-header" style="font-size:1.7vw; margin-top:1vw;">Education & Skills</div>
-  <div class="page-content">
-    <div style="display:flex; align-items:center; gap:1vw; justify-content:center; margin-bottom:0.7vw;">
+<section class="mobile-section" id="education-h" style="overflow:visible; max-height:none; height:auto;">
+  <div class="page-header" style="font-size:2vw; margin-top:1vw;">Education & Skills</div>
+  <div class="page-content" style="overflow:visible; max-height:none; height:auto;">
+    <div style="display:flex; align-items:center; gap:2vw; justify-content:center; margin-bottom:1vw;">
       <img src="annauniv.png" alt="Anna University"
-        style="width:60px; height:43px; border-radius:10px; border:2px solid #405d27;">
-      <span style="font-style:italic; font-size:1vw;">
+        style="width:120px; height:86px; border-radius:12px; border:2px solid #405d27;">
+      <span style="font-style:italic; font-size:1.5vw;">
         B.E. Computer Science and Engineering<br>
         College of Engineering Guindy, Anna University<br>
         Expected Graduation: 2026
       </span>
     </div>
-    <h2 style="color:#405d27; font-size:1.3vw; margin:0.2vw 0 0.3vw 0;">Skills</h2>
+    <h2 style="color:#405d27; font-size:1.7vw; margin:0.2vw 0 0.6vw 0;">Skills</h2>
     <!-- Skills grid: left Languages+Libraries, right DB+Web -->
     <div class="skills-split-row">
       <div style="text-align:left;">
-        <div style="margin-bottom:0.33vw;">
+        <div style="margin-bottom:0.4vw;">
           <b style="color:#405d27;">Languages:</b>
           <div class="skills-bubble-row">
-            <span class="skill-pill-tiny">Python</span>
-            <span class="skill-pill-tiny">C/C++</span>
-            <span class="skill-pill-tiny">Java</span>
-            <span class="skill-pill-tiny">SQL</span>
-            <span class="skill-pill-tiny">Bash/Shell</span>
+            <span class="skill-pill-big">Python</span>
+            <span class="skill-pill-big">C/C++</span>
+            <span class="skill-pill-big">Java</span>
+            <span class="skill-pill-big">SQL</span>
+            <span class="skill-pill-big">Bash/Shell</span>
           </div>
         </div>
         <div>
           <b style="color:#405d27;">Libraries:</b>
           <div class="skills-bubble-row">
-            <span class="skill-pill-tiny">PyTorch</span>
-            <span class="skill-pill-tiny">Scikit-learn</span>
-            <span class="skill-pill-tiny">OpenCV</span>
-            <span class="skill-pill-tiny">Pandas</span>
-            <span class="skill-pill-tiny">NumPy</span>
-            <span class="skill-pill-tiny">Matplotlib</span><br>
-            
+            <span class="skill-pill-big">PyTorch</span>
+            <span class="skill-pill-big">Scikit-learn</span>
+            <span class="skill-pill-big">OpenCV</span>
+            <span class="skill-pill-big">Pandas</span>
+            <span class="skill-pill-big">NumPy</span>
+            <span class="skill-pill-big">Matplotlib</span>
+            <span class="skill-pill-big">Seaborn</span>
           </div>
         </div>
       </div>
       <div style="text-align:left;">
-        <div style="margin-bottom:0.33vw;">
+        <div style="margin-bottom:0.4vw;">
           <b style="color:#405d27;">Databases & Cloud:</b>
           <div class="skills-bubble-row">
-            <span class="skill-pill-tiny">MySQL</span>
-            <span class="skill-pill-tiny">MongoDB</span>
-            <span class="skill-pill-tiny">SQLite</span>
-            <span class="skill-pill-tiny">AWS</span>
-            <span class="skill-pill-tiny">Azure</span>
-            <span class="skill-pill-tiny">Docker</span>
-            <span class="skill-pill-tiny">Git</span>
+            <span class="skill-pill-big">MySQL</span>
+            <span class="skill-pill-big">MongoDB</span>
+            <span class="skill-pill-big">SQLite</span>
+            <span class="skill-pill-big">AWS</span>
+            <span class="skill-pill-big">Azure</span>
+            <span class="skill-pill-big">Docker</span>
+            <span class="skill-pill-big">Git</span>
           </div>
         </div>
         <div>
           <b style="color:#405d27;">Web & Tools:</b>
           <div class="skills-bubble-row">
-            <span class="skill-pill-tiny">HTML</span>
-            <span class="skill-pill-tiny">CSS</span>
-            <span class="skill-pill-tiny">JavaScript</span>
-            <span class="skill-pill-tiny">React.js</span>
-            <span class="skill-pill-tiny">Node.js</span>
-            <span class="skill-pill-tiny">REST APIs</span>
-            <span class="skill-pill-tiny">Keycloak</span>
+            <span class="skill-pill-big">HTML</span>
+            <span class="skill-pill-big">CSS</span>
+            <span class="skill-pill-big">JavaScript</span>
+            <span class="skill-pill-big">React.js</span>
+            <span class="skill-pill-big">Node.js</span>
+            <span class="skill-pill-big">REST APIs</span>
+            <span class="skill-pill-big">Keycloak</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
     <!-- Research Projects -->
   <section class="mobile-section" id="research-h">
   <div class="page-header" style="font-size:2.3vw; margin-top:1vw;">Research Projects</div>
