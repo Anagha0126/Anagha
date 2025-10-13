@@ -582,11 +582,11 @@ right: -30px;
   .controls {
     display: block !important;
     visibility: visible !important;
-    z-index: 100 !important;
     pointer-events: none;
     position: absolute;
     left: 0; right: 0; top: 0; bottom: 0;
-    height: 100%;
+    width: 100%; height: 100%;
+    z-index: 100 !important;
   }
   .nav {
     display: flex !important;
@@ -594,9 +594,11 @@ right: -30px;
   }
   button.nav {
     position: absolute;
-    top: 50%;
+    top: 50%; /* Vertically center */
     transform: translateY(-50%);
     z-index: 105;
+    width: 5vw;
+    height: 5vw;
   }
   #prevBtn { left: 1vw; }
   #nextBtn { right: 1vw; }
