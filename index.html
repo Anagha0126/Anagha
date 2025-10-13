@@ -26,7 +26,7 @@ a:hover {
   color: #2e4518;
   transform: scale(1.05);
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   #flipbook-container {
     transform-origin: top left;
     transform: scale(0.45);
@@ -200,7 +200,6 @@ button.nav:disabled img { opacity: 0.4; cursor: default; }
 #nextBtn img { width: 84%; height: auto; }
 .close-btn {
   margin-top: 30px;
-right: -30px;
   font-size: 1rem;
   border-radius: 10px;
   padding: 10px 15px;
@@ -211,6 +210,7 @@ right: -30px;
   transition: background 0.3s ease;
 }
 .close-btn:hover { background: #c9302c; }
+
 
 /* ------------- MOBILE-ONLY: HIDE DESKTOP, SHOW SCROLLABLE ------------- */
 @media (max-width: 768px) {
@@ -578,34 +578,7 @@ right: -30px;
 }
 
 
-@media (min-width: 1025px) {
-  .controls {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%; height: 100%;
-    display: block !important;
-    visibility: visible !important;
-    pointer-events: none; /* only the buttons will be clickable */
-    z-index: 100 !important;
-  }
-  .nav {
-    display: flex !important;
-    pointer-events: auto;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 105;
-    width: 5vw;
-    height: 5vw;
-    background: none;
-    border: none;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease, opacity 0.18s ease;
-  }
-  #prevBtn { left: 1vw; }
-  #nextBtn { right: 1vw; }
-}
+
 </style>
 </head>
 <body>
