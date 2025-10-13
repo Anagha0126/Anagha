@@ -1330,6 +1330,7 @@ function renderCover() {
   // Explicitly set nav buttons for cover page
   prevBtn.style.display = "none"; // hide left arrow
   nextBtn.style.display = "block"; // show right arrow
+positionNextBtn();
 }
 
 
@@ -1368,9 +1369,28 @@ function renderPages() {
   // show both nav buttons on normal pages
   nextBtn.style.display = "block";
   prevBtn.style.display = "block";
+	positionNextBtn();
 }
 
+function positionNextBtn() {
+  // Find the right page (in cover mode, there's no right page, so use cover)
+  let target;
+  if (flipbook.classList.contains('cover-mode')) {
+    target = flipbook.querySelector('.cover-page');
+  } else {
+    target = flipbook.querySelector('.page.right') || flipbook.querySelector('.page.left');
+  }
+  if (!target) return;
 
+  const rect = target.getBoundingClientRect();
+  const parentRect = flipbook.getBoundingClientRect();
+
+  // Position nextBtn absolutely within the flipbook
+  nextBtn.style.position = "absolute";
+  nextBtn.style.left = (rect.right - parentRect.left - nextBtn.offsetWidth / 2) + "px";
+  nextBtn.style.top = (rect.bottom - parentRect.top + 24) + "px"; // 24px below page, adjust as needed
+  nextBtn.style.zIndex = 10;
+}
 
 function renderLastPage() {
   flipbook.classList.add('last-page-mode');
